@@ -57,7 +57,7 @@ public class ventanaPrincipal {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// Abrir la siguiente ventana, en cuyo caso sería la de elegir la alineacion
+				Login.setVisible(true);
 				
 			}
 		});

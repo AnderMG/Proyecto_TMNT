@@ -9,7 +9,6 @@ public class Jugador extends Persona {
 	private static String equipo;
 	private static Temporada temporada;
 	private static int media;
-	private ArrayList<Integer> estadisticas;
 	private boolean capitan;
 	
 	public Jugador(String nombre, String apellido) {
@@ -25,7 +24,6 @@ public class Jugador extends Persona {
 		Jugador.equipo = equipo;
 		Jugador.temporada = temporada;
 		Jugador.media = media;
-		this.estadisticas = estadisticas;
 		this.capitan = false;
 	}
 
@@ -75,14 +73,6 @@ public class Jugador extends Persona {
 
 	public void setMedia(int media) {
 		Jugador.media = media;
-	}
-
-	public ArrayList<Integer> getEstadisticas() {
-		return estadisticas;
-	}
-
-	public void setEstadisticas(ArrayList<Integer> estadisticas) {
-		this.estadisticas = estadisticas;
 	}
 
 	public boolean isCapitan() {
