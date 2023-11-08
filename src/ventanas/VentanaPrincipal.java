@@ -20,7 +20,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 
-public class ventanaPrincipal {
+public class VentanaPrincipal {
 	private JFrame ventanaPrincipal;
 	
 	
@@ -36,6 +36,8 @@ public class ventanaPrincipal {
 		ventanaPrincipal.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		ventanaPrincipal.setSize(1000, 700);
 		ventanaPrincipal.setTitle("FutDraft Eleven");
+		ventanaPrincipal.setLocationRelativeTo( null );
+		
 		
 		//Botones de salida y jugar
 		JButton btnSalir = new JButton();
@@ -57,8 +59,8 @@ public class ventanaPrincipal {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Login.setVisible(true);
-				
+					new VentanaFormacion();
+					ventanaPrincipal.dispose();
 			}
 		});
 		
