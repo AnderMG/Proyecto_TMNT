@@ -20,11 +20,13 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import clases.Usuario;
+
 
 public class VentanaPrincipal {
 	private JFrame ventanaPrincipal;
-	private static boolean iniciadoSesion = false;
-	
+	private static boolean iniciadoSesion = false;	
+
 	private static JPanel panelConFondo() {
 		JPanel panelFondo = new JPanelConFondo( "fondo.jpg" );
 		return panelFondo;
