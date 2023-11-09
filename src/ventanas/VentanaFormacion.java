@@ -5,6 +5,8 @@ import java.awt.CardLayout;
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -43,9 +45,34 @@ public class VentanaFormacion extends JFrame{
 			formaciones.remove(p);
 		}
 		JButton btnFor1 = new JButton(formaciones.get(0));
+		btnFor1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new VentanaElegirPlantilla(btnFor1.getText());
+				dispose();
+			}
+		});
+		
 		JButton btnFor2 = new JButton(formaciones.get(1));
+		btnFor2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new VentanaElegirPlantilla(btnFor2.getText());
+				dispose();
+			}
+		});
+		
 		JButton btnFor3 = new JButton(formaciones.get(2));
-	
+		btnFor3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new VentanaElegirPlantilla(btnFor3.getText());
+				dispose();
+			}
+		});
 		
 		//Creamos el panel y añadimos los botones
 		panelFormacion.setLayout(new GridLayout(3, 1, 0, 10));
