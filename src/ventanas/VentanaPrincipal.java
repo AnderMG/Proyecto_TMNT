@@ -17,12 +17,13 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
 public class VentanaPrincipal {
 	private JFrame ventanaPrincipal;
-	
+	private static boolean iniciadoSesion = false;
 	
 	private static JPanel panelConFondo() {
 		JPanel panelFondo = new JPanelConFondo( "fondo.jpg" );
@@ -39,7 +40,7 @@ public class VentanaPrincipal {
 		ventanaPrincipal.setLocationRelativeTo( null );
 		
 		
-		//Botones de salida y jugar
+		//Botones de salida, jugar e iniciar sesion
 		JButton btnSalir = new JButton();
 		btnSalir.setText("Salir");
 		btnSalir.setOpaque(false);
@@ -59,15 +60,34 @@ public class VentanaPrincipal {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-					new VentanaFormacion();
-					ventanaPrincipal.dispose();
+					if (iniciadoSesion) {
+						new VentanaFormacion();
+						ventanaPrincipal.dispose();
+					}else {
+						JOptionPane.showMessageDialog(null, "Inicia sesion antes de empezar a jugar");
+					}
+					
+			}
+		});
+		JButton btnIniciarSesion = new JButton();
+		btnIniciarSesion.setText("Iniciar sesion");
+		btnIniciarSesion.setOpaque(false);
+		btnIniciarSesion.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				iniciadoSesion = true;
+				new Login();
 			}
 		});
 		
+		
+		
 		//Creamos los paneles
 		JPanel panelBotones = new JPanel();
-		panelBotones.setLayout(new GridLayout(1, 2, 10, 0));
+		panelBotones.setLayout(new GridLayout(1, 3, 10, 0));
 		panelBotones.add(btnSalir);
+		panelBotones.add(btnIniciarSesion);
 		panelBotones.add(btnJugar);
 		
 		JPanel panelFondo = panelConFondo();
