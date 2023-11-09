@@ -25,8 +25,8 @@ public class VentanaPrincipal {
 	private JFrame ventanaPrincipal;
 	private static boolean iniciadoSesion = false;
 	
-	private static JPanel panelConFondo() {
-		JPanel panelFondo = new JPanelConFondo( "fondo.jpg" );
+	public static JPanel panelConFondo(String imagen) {
+		JPanel panelFondo = new JPanelConFondo(imagen);
 		return panelFondo;
 	}
 	
@@ -90,7 +90,7 @@ public class VentanaPrincipal {
 		panelBotones.add(btnIniciarSesion);
 		panelBotones.add(btnJugar);
 		
-		JPanel panelFondo = panelConFondo();
+		JPanel panelFondo = panelConFondo("fondo.jpg");
 		panelFondo.setLayout(new BorderLayout());
 		panelFondo.add(panelBotones, BorderLayout.SOUTH);
 		
