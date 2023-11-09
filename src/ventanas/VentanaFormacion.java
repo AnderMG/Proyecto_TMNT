@@ -2,6 +2,7 @@ package ventanas;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -79,6 +80,13 @@ public class VentanaFormacion extends JFrame{
 		panelFormacion.add(btnFor1);
 		panelFormacion.add(btnFor2);
 		panelFormacion.add(btnFor3);
+		
+//		add(panelFormacion, BorderLayout.CENTER);
+		
+		//Banner de fondo
+//		JPanel panelFondoFormacion = VentanaPrincipal.panelConFondo("bannerFondo.jpg");
+//		panelFondoFormacion.setLayout(new BorderLayout());
+//		panelFondoFormacion.add(panelFormacion, BorderLayout.NORTH);
 		
 		add(panelFormacion, BorderLayout.CENTER);
 		
