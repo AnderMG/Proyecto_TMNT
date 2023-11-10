@@ -25,17 +25,11 @@ import clases.Usuario;
 
 public class VentanaPrincipal {
 	private JFrame ventanaPrincipal;
-<<<<<<< HEAD
 	private static boolean iniciadoSesion = false;	
-
-	private static JPanel panelConFondo() {
-		JPanel panelFondo = new JPanelConFondo( "fondo.jpg" );
-=======
-	private static boolean iniciadoSesion = false;
+		
 	
 	public static JPanel panelConFondo(String imagen) {
 		JPanel panelFondo = new JPanelConFondo(imagen);
->>>>>>> 1ace73345b45f522644a9588cc0e2a1068bfc2b0
 		return panelFondo;
 	}
 	
@@ -78,6 +72,7 @@ public class VentanaPrincipal {
 					
 			}
 		});
+		//De momento esta establecido que de valido el incio de sesion auqnue no iniciemos ninguna cuenta para poder probar las demas funciones
 		JButton btnIniciarSesion = new JButton();
 		btnIniciarSesion.setText("Iniciar sesion");
 		btnIniciarSesion.setOpaque(false);

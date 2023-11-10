@@ -32,8 +32,9 @@ public class Login extends JFrame {
 
 	public Login() {
 		setTitle("Login");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 950, 550);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setSize(800, 500);
+		setLocationRelativeTo( null );
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -43,7 +44,7 @@ public class Login extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.GRAY);
 		panel.setForeground(Color.BLACK);
-		panel.setBounds(277, 133, 373, 292);
+		panel.setBounds(218, 104, 373, 292);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -95,6 +96,6 @@ public class Login extends JFrame {
 				
 			}
 		});
-		
+		setVisible(true);
 	}
 }

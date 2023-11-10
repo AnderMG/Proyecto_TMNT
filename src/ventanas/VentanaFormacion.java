@@ -27,6 +27,7 @@ public class VentanaFormacion extends JFrame{
 		setSize(800, 500);
 		setLayout(new BorderLayout());
 		setTitle("Formacion");
+		setLocationRelativeTo( null );
 		
 		//Añadimos un label
 		JLabel etiquetaIndicacion = new JLabel("Elige una de las siguientes formaciones para iniciar el juego", SwingConstants.CENTER);
@@ -38,7 +39,7 @@ public class VentanaFormacion extends JFrame{
 		formaciones.add("2-1-2");
 		formaciones.add("1-2-2");
 		formaciones.add("1-3-1");
-		setLocationRelativeTo( null );
+		
 		
 		//Quitamos 2 formaciones de manera aleatoria y creamos 3 botones con las restantes
 		for (int i = 0; i < 2; i++) {

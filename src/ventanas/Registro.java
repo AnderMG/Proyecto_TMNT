@@ -30,7 +30,8 @@ public class Registro extends JFrame {
 	public Registro() {
 		setTitle("Registro");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 950, 550);
+		setSize(800,500);
+		setLocationRelativeTo( null );
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -39,7 +40,7 @@ public class Registro extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.GRAY);
-		panel.setBounds(288, 63, 373, 373);
+		panel.setBounds(218, 63, 373, 373);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
