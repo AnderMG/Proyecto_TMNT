@@ -17,10 +17,10 @@ public class Quimica {
 
 	public static int calcularQuimica3Jugadores(Jugador jugador, Jugador jugador2, Jugador jugador3) {
 		int quimica = 0;
-		if (jugador.getElemento() == jugador2.getElemento()) {
+		if (jugador.getElemento() == jugador2.getElemento() || jugador.getElemento() == jugador3.getElemento()) {
 			quimica++;
 		}
-		if (jugador.getTemporada() == jugador2.getTemporada()) {
+		if (jugador.getTemporada() == jugador2.getTemporada() || jugador.getTemporada() == jugador3.getTemporada()) {
 			quimica++;
 		}	
 		return quimica*5;
