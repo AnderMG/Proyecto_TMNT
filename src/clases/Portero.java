@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 public class Portero extends Jugador {
 
-	private static int estirda;
-	private static int reflejos;
-	private static int parada;
-	private static int velocidad;
-	private static int posicionamiento;
-	private static int saque;
+	protected static int estirda;
+	protected static int reflejos;
+	protected static int parada;
+	protected static int velocidad;
+	protected static int posicionamiento;
+	protected static int saque;
 	
 	public Portero(String nombre, String apellido, Posicion posicion, Elemento elemento, String[] superTecnicas,
-			String equipo, Temporada temporada, int media, ArrayList<Integer> estadisticas, boolean capitan) {
-		super(nombre, apellido, posicion, elemento, superTecnicas, equipo, temporada, media, estadisticas, capitan);
+			String equipo, Temporada temporada, int media, ArrayList<Integer> estadisticas, boolean capitan, int quimica) {
+		super(nombre, apellido, posicion, elemento, superTecnicas, equipo, temporada, media, estadisticas, capitan, quimica);
 		
 	}
 

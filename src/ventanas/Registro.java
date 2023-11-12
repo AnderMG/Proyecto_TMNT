@@ -21,9 +21,9 @@ import java.awt.SystemColor;
 public class Registro extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField tfNombre;
+	private JTextField tfNombreCompleto;
+	private JTextField tfEdad;
 	private JPasswordField passwordField;
 
 
@@ -56,11 +56,11 @@ public class Registro extends JFrame {
 		lblNombreDeUsuario.setForeground(SystemColor.info);
 		lblNombreDeUsuario.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 16));
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
-		textField.setBounds(25, 116, 329, 26);
-		panel.add(textField);
-		textField.setColumns(10);
+		tfNombre = new JTextField();
+		tfNombre.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
+		tfNombre.setBounds(25, 116, 329, 26);
+		panel.add(tfNombre);
+		tfNombre.setColumns(10);
 		
 		JLabel lblPassword = new JLabel("Contraseña: ");
 		lblPassword.setBounds(25, 144, 152, 34);
@@ -79,11 +79,11 @@ public class Registro extends JFrame {
 		lblNombreCompleto.setForeground(SystemColor.info);
 		lblNombreCompleto.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 16));
 		
-		textField_2 = new JTextField();
-		textField_2.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
-		textField_2.setBounds(25, 231, 329, 26);
-		panel.add(textField_2);
-		textField_2.setColumns(10);
+		tfNombreCompleto = new JTextField();
+		tfNombreCompleto.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
+		tfNombreCompleto.setBounds(25, 231, 329, 26);
+		panel.add(tfNombreCompleto);
+		tfNombreCompleto.setColumns(10);
 		
 		JLabel lblEdad = new JLabel("Edad: ");
 		lblEdad.setBounds(25, 258, 152, 34);
@@ -91,11 +91,11 @@ public class Registro extends JFrame {
 		lblEdad.setForeground(SystemColor.info);
 		lblEdad.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 16));
 		
-		textField_3 = new JTextField();
-		textField_3.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
-		textField_3.setBounds(25, 285, 329, 26);
-		panel.add(textField_3);
-		textField_3.setColumns(10);
+		tfEdad = new JTextField();
+		tfEdad.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
+		tfEdad.setBounds(25, 285, 329, 26);
+		panel.add(tfEdad);
+		tfEdad.setColumns(10);
 		
 		
 		JButton btnRegistrar = new JButton("Registrar");
@@ -104,19 +104,20 @@ public class Registro extends JFrame {
 		panel.add(btnRegistrar);
 		
 		btnRegistrar.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
-					String nombre = textField.getText();
+					String nombre = tfNombre.getText();
 					String contraseña =  passwordField.getText();
-					String nombreCompleto = textField_2.getText();
-					if (nombre.isEmpty() || contraseña.isEmpty() || nombreCompleto.isEmpty() || textField_3.getText().isEmpty()){
+					String nombreCompleto = tfNombreCompleto.getText();
+					int edad = Integer.parseInt(tfEdad.getText());
+					if (nombre.isEmpty() || contraseña.isEmpty() || nombreCompleto.isEmpty() || tfEdad.getText().isEmpty()){
 						JOptionPane jOptionPane = new JOptionPane();
 						JOptionPane.showMessageDialog(jOptionPane, "Tienes que rellenar todos los huecos.");
 					}
-					else{
-						int edad = Integer.parseInt(textField_3.getText());
-						utils.EscribirFichero.agregarUsuario(textField.getText(), passwordField.getText(), textField_2.getText(), edad);
+					else{	
+						utils.EscribirFichero.agregarUsuario(tfNombre.getText(), passwordField.getText(), tfNombreCompleto.getText(), edad);
 						JOptionPane jOptionPane = new JOptionPane();
 						JOptionPane.showMessageDialog(jOptionPane, "Resgistro completado");
 					

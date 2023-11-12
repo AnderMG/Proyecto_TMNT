@@ -3,20 +3,22 @@ package clases;
 import java.util.ArrayList;
 
 public class Jugador extends Persona {
-	private static Posicion posicion;
-	private static Elemento elemento;
-	private static String[] superTecnicas;
-	private static String equipo;
-	private static Temporada temporada;
-	private static int media;
-	private boolean capitan;
+	protected static Posicion posicion;
+	protected static Elemento elemento;
+	protected static String[] superTecnicas;
+	protected static String equipo;
+	protected static Temporada temporada;
+	protected static int media;
+	protected static boolean capitan;
+	protected static int quimica;
+	
 	
 	public Jugador(String nombre, String apellido) {
 		super(nombre, apellido);
 	}
 
 	public Jugador(String nombre, String apellido, Posicion posicion, Elemento elemento, String[] superTecnicas,
-			String equipo, Temporada temporada, int media, ArrayList<Integer> estadisticas, boolean capitan) {
+			String equipo, Temporada temporada, int media, ArrayList<Integer> estadisticas, boolean capitan, int qumica) {
 		super(nombre, apellido);
 		Jugador.posicion = posicion;
 		Jugador.elemento = elemento;
@@ -24,7 +26,8 @@ public class Jugador extends Persona {
 		Jugador.equipo = equipo;
 		Jugador.temporada = temporada;
 		Jugador.media = media;
-		this.capitan = false;
+		Jugador.capitan = false;
+		Jugador.quimica = qumica;
 	}
 
 	public Posicion getPosicion() {
@@ -64,7 +67,7 @@ public class Jugador extends Persona {
 	}
 
 	public void setTemporada(Temporada temporada) {
-		this.temporada = temporada;
+		Jugador.temporada = temporada;
 	}
 
 	public int getMedia() {
@@ -80,7 +83,15 @@ public class Jugador extends Persona {
 	}
 
 	public void setCapitan(boolean capitan) {
-		this.capitan = capitan;
+		Jugador.capitan = capitan;
+	}
+
+	public static int getQuimica() {
+		return quimica;
+	}
+
+	public static void setQuimica(int quimica) {
+		Jugador.quimica = quimica;
 	}
 	
 	

@@ -1,8 +1,8 @@
 package clases;
 
 public class Entrenador extends Persona {
-	private static Temporada temporada;
-	private static int media;
+	protected static Temporada temporada;
+	protected static int media;
 	
 	
 	

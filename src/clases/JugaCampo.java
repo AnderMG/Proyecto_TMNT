@@ -5,16 +5,16 @@ import java.util.ArrayList;
 
 public class JugaCampo extends Jugador {
 	
-	private static int ritmo;
-	private static int regate;
-	private static int tiro;
-	private static int defensa;
-	private static int fisico;
-	private static int pase;
+	protected static int ritmo;
+	protected static int regate;
+	protected static int tiro;
+	protected static int defensa;
+	protected static int fisico;
+	protected static int pase;
 
 	public JugaCampo(String nombre, String apellido, Posicion posicion, Elemento elemento, String[] superTecnicas,
-			String equipo, Temporada temporada, int media, ArrayList<Integer> estadisticas, boolean capitan) {
-		super(nombre, apellido, posicion, elemento, superTecnicas, equipo, temporada, media, estadisticas, capitan);
+			String equipo, Temporada temporada, int media, ArrayList<Integer> estadisticas, boolean capitan, int quimica) {
+		super(nombre, apellido, posicion, elemento, superTecnicas, equipo, temporada, media, estadisticas, capitan, quimica);
 		// TODO Auto-generated constructor stub
 	}
 

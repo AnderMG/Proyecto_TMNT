@@ -26,7 +26,7 @@ import javax.swing.ImageIcon;
 public class Login extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField tfNomUsuario;
 	private JPasswordField passwordField;
 
 
@@ -51,6 +51,28 @@ public class Login extends JFrame {
 		JButton btnIniciarSesion = new JButton("Iniciar Sesion");
 		btnIniciarSesion.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
 		btnIniciarSesion.setBounds(25, 243, 130, 29);
+		btnIniciarSesion.addActionListener(new ActionListener() {
+			
+			@SuppressWarnings("deprecation")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String nomUsuario = tfNomUsuario.getText();
+				String contraseina = passwordField.getText();
+				try {
+					boolean usarioValido = utils.LeerFichero.validarUsuario(nomUsuario, contraseina);
+					if (usarioValido) {
+						VentanaPrincipal.iniciadoSesion = true;
+						JOptionPane.showMessageDialog(null, "Inicio de sesion valido");
+						dispose();
+					}else {
+						VentanaPrincipal.iniciadoSesion = false;
+						JOptionPane.showMessageDialog(null, "Inicio de sesion incorrecto");
+					}
+				} catch (FileNotFoundException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
 		panel.add(btnIniciarSesion);
 		
 		JButton btnRegistrate = new JButton("Registrate");
@@ -63,11 +85,11 @@ public class Login extends JFrame {
 		passwordField.setBounds(25, 178, 329, 26);
 		panel.add(passwordField);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
-		textField.setBounds(25, 108, 329, 26);
-		panel.add(textField);
-		textField.setColumns(10);
+		tfNomUsuario = new JTextField();
+		tfNomUsuario.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
+		tfNomUsuario.setBounds(25, 108, 329, 26);
+		panel.add(tfNomUsuario);
+		tfNomUsuario.setColumns(10);
 		
 		JLabel lblNombreDeUsuario = new JLabel("Nombre de usuario: ");
 		lblNombreDeUsuario.setBounds(25, 78, 152, 34);

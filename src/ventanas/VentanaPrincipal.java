@@ -24,8 +24,7 @@ import clases.Usuario;
 
 
 public class VentanaPrincipal {
-	private JFrame ventanaPrincipal;
-	private static boolean iniciadoSesion = false;	
+	protected static boolean iniciadoSesion = false;
 		
 	
 	public static JPanel panelConFondo(String imagen) {
@@ -42,8 +41,7 @@ public class VentanaPrincipal {
 		ventanaPrincipal.setTitle("FutDraft Eleven");
 		ventanaPrincipal.setLocationRelativeTo( null );
 		
-		
-		//Botones de salida, jugar e iniciar sesion
+		//Botones de salida
 		JButton btnSalir = new JButton();
 		btnSalir.setText("Salir");
 		btnSalir.setOpaque(false);
@@ -55,7 +53,7 @@ public class VentanaPrincipal {
 				
 			}
 		});
-		
+		//Boton que inicia el juego
 		JButton btnJugar = new JButton();
 		btnJugar.setText("¡Jugar!");
 		btnJugar.setOpaque(false);
@@ -72,7 +70,7 @@ public class VentanaPrincipal {
 					
 			}
 		});
-		//De momento esta establecido que de valido el incio de sesion auqnue no iniciemos ninguna cuenta para poder probar las demas funciones
+		//Se debe inciar sesion con una cuenta registrada para poder acceder al juego
 		JButton btnIniciarSesion = new JButton();
 		btnIniciarSesion.setText("Iniciar sesion");
 		btnIniciarSesion.setOpaque(false);
@@ -80,7 +78,6 @@ public class VentanaPrincipal {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				iniciadoSesion = true;
 				new Login();
 			}
 		});
