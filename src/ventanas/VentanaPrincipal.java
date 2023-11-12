@@ -13,6 +13,10 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
@@ -21,19 +25,25 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import clases.Usuario;
+import utils.FondoEnVentana;
 
 
 public class VentanaPrincipal {
 	protected static boolean iniciadoSesion = false;
-		
-	
-	public static JPanel panelConFondo(String imagen) {
-		JPanel panelFondo = new JPanelConFondo(imagen);
-		return panelFondo;
-	}
+	protected static Logger logger;
 	
 	public static void main(String[] args) {
-		
+		//Creamos el logger	
+		try {
+			logger = Logger.getLogger("ventanas.VentanaPrincipal");
+			Handler h = new FileHandler("LoggerVentanas.xml", true);
+			logger.addHandler(h);
+			logger.setLevel(Level.FINEST);
+			h.setLevel(Level.FINEST);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+				
 		//Creamos la venta
 		JFrame ventanaPrincipal = new JFrame();
 		ventanaPrincipal.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -61,10 +71,13 @@ public class VentanaPrincipal {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				logger.log(Level.FINE, "Se ha pulsado el boton jugar");
 					if (iniciadoSesion) {
+						logger.log(Level.FINE, "El inicio de sesion era correcto, se ha iniciado el juego");
 						new VentanaFormacion();
 						ventanaPrincipal.dispose();
 					}else {
+						logger.log(Level.FINE, "El inicio de sesion era incorrecto o nulo, no se ha podido inicar");
 						JOptionPane.showMessageDialog(null, "Inicia sesion antes de empezar a jugar");
 					}
 					
@@ -78,6 +91,7 @@ public class VentanaPrincipal {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				logger.log(Level.FINE, "Se ha pulsado boton inicio de sesion");
 				new Login();
 			}
 		});
@@ -91,44 +105,15 @@ public class VentanaPrincipal {
 		panelBotones.add(btnIniciarSesion);
 		panelBotones.add(btnJugar);
 		
-		JPanel panelFondo = panelConFondo("fondo.jpg");
+		JPanel panelFondo = FondoEnVentana.panelConFondo("fondo.jpg");
 		panelFondo.setLayout(new BorderLayout());
 		panelFondo.add(panelBotones, BorderLayout.SOUTH);
-		
-		
 		
 		
 		//Ainadimos el panel a la ventana
 		ventanaPrincipal.add(panelFondo, BorderLayout.CENTER);
 		
 		ventanaPrincipal.setVisible(true);
+		logger.log(Level.FINEST, "Se ha iniciado la ventana principal");
 	}
-}
-
-//Clase Fondo de pantalla
-@SuppressWarnings("serial")
-class JPanelConFondo extends JPanel {
-
-	private BufferedImage imagenOriginal;
-	public JPanelConFondo( String nombreImagenFondo ) {
-        URL imgURL = getClass().getResource("/imagenes/" + nombreImagenFondo);
-        try {
-        	imagenOriginal = ImageIO.read( imgURL );
-        } catch (IOException e) {
-        }
-	}
-
-	protected void paintComponent(Graphics g) {
-		Rectangle espacio = g.getClipBounds();  // espacio de dibujado del panel
-		// setBounds( espacio );
-		//super.paintComponent(g);  en vez de esto...
-		Graphics2D g2 = (Graphics2D) g;  // El Graphics realmente es Graphics2D
-		// Código para que el dibujado se reescale al área disponible
-		g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-		g2.setRenderingHint(RenderingHints.KEY_RENDERING,RenderingHints.VALUE_RENDER_QUALITY);
-		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);	
-		// Dibujado
-		g2.drawImage(imagenOriginal, 0, 0, (int)espacio.getWidth(), (int)espacio.getHeight(), null);
-	}
-
 }

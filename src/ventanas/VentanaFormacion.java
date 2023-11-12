@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.logging.Level;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -51,6 +52,7 @@ public class VentanaFormacion extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				VentanaPrincipal.logger.log(Level.FINE, "Se ha elegido la primera formacion");
 				new VentanaElegirPlantilla(btnFor1.getText());
 				dispose();
 			}
@@ -61,6 +63,7 @@ public class VentanaFormacion extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				VentanaPrincipal.logger.log(Level.FINE, "Se ha elegido la segunda formacion");
 				new VentanaElegirPlantilla(btnFor2.getText());
 				dispose();
 			}
@@ -71,6 +74,7 @@ public class VentanaFormacion extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				VentanaPrincipal.logger.log(Level.FINE, "Se ha elegido la tercera formacion");
 				new VentanaElegirPlantilla(btnFor3.getText());
 				dispose();
 			}
@@ -92,6 +96,6 @@ public class VentanaFormacion extends JFrame{
 		add(panelFormacion, BorderLayout.CENTER);
 		
 		setVisible(true);
-		
+		VentanaPrincipal.logger.log(Level.FINEST, "Se ha abierto la ventana formacion");
 	}
 }
