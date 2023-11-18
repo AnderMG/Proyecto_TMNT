@@ -4,68 +4,71 @@ import java.util.ArrayList;
 
 public class Portero extends Jugador {
 
-	protected static int estirda;
-	protected static int reflejos;
-	protected static int parada;
-	protected static int velocidad;
-	protected static int posicionamiento;
-	protected static int saque;
+	protected int estirda;
+	protected int reflejos;
+	protected int parada;
+	protected int velocidad;
+	protected int posicionamiento;
+	protected int saque;
+	
 	
 	public Portero(String nombre, String apellido, Posicion posicion, Elemento elemento, String[] superTecnicas,
-			String equipo, Temporada temporada, int media, ArrayList<Integer> estadisticas, boolean capitan, int quimica) {
-		super(nombre, apellido, posicion, elemento, superTecnicas, equipo, temporada, media, estadisticas, capitan, quimica);
-		
+			String equipo, Temporada temporada, int media, ArrayList<Integer> estadisticas, boolean capitan,
+			int qumica) {
+		super(nombre, apellido, posicion, elemento, superTecnicas, equipo, temporada, media, estadisticas, capitan, qumica);
+	}
+	
+	public Portero(String nombre, String apellido) {
+		super(nombre, apellido);
 	}
 
-
-
-	public static int getEstirda() {
+	public int getEstirda() {
 		return estirda;
 	}
 
-	public static void setEstirda(int estirda) {
-		Portero.estirda = estirda;
+	public void setEstirda(int estirda) {
+		this.estirda = estirda;
 	}
 
-	public static int getReflejos() {
+	public int getReflejos() {
 		return reflejos;
 	}
 
-	public static void setReflejos(int reflejos) {
-		Portero.reflejos = reflejos;
+	public void setReflejos(int reflejos) {
+		this.reflejos = reflejos;
 	}
 
-	public static int getParada() {
+	public int getParada() {
 		return parada;
 	}
 
-	public static void setParada(int parada) {
-		Portero.parada = parada;
+	public void setParada(int parada) {
+		this.parada = parada;
 	}
 
-	public static int getVelocidad() {
+	public int getVelocidad() {
 		return velocidad;
 	}
 
-	public static void setVelocidad(int velocidad) {
-		Portero.velocidad = velocidad;
+	public void setVelocidad(int velocidad) {
+		this.velocidad = velocidad;
 	}
 
-	public static int getPosicionamiento() {
+	public int getPosicionamiento() {
 		return posicionamiento;
 	}
 
-	public static void setPosicionamiento(int posicionamiento) {
-		Portero.posicionamiento = posicionamiento;
+	public void setPosicionamiento(int posicionamiento) {
+		this.posicionamiento = posicionamiento;
 	}
 
-	public static int getSaque() {
+	public int getSaque() {
 		return saque;
 	}
 
-	public static void setSaque(int saque) {
-		Portero.saque = saque;
+	public void setSaque(int saque) {
+		this.saque = saque;
 	}
-
-		
+	
+	
 }

@@ -3,14 +3,14 @@ package clases;
 import java.util.ArrayList;
 
 public class Jugador extends Persona {
-	protected static Posicion posicion;
-	protected static Elemento elemento;
-	protected static String[] superTecnicas;
-	protected static String equipo;
-	protected static Temporada temporada;
-	protected static int media;
-	protected static boolean capitan;
-	protected static int quimica;
+	protected Posicion posicion;
+	protected Elemento elemento;
+	protected String[] superTecnicas;
+	protected String equipo;
+	protected Temporada temporada;
+	protected int media;
+	protected boolean capitan;
+	protected int quimica;
 	
 	
 	public Jugador(String nombre, String apellido) {
@@ -20,14 +20,14 @@ public class Jugador extends Persona {
 	public Jugador(String nombre, String apellido, Posicion posicion, Elemento elemento, String[] superTecnicas,
 			String equipo, Temporada temporada, int media, ArrayList<Integer> estadisticas, boolean capitan, int qumica) {
 		super(nombre, apellido);
-		Jugador.posicion = posicion;
-		Jugador.elemento = elemento;
-		Jugador.superTecnicas = superTecnicas;
-		Jugador.equipo = equipo;
-		Jugador.temporada = temporada;
-		Jugador.media = media;
-		Jugador.capitan = false;
-		Jugador.quimica = qumica;
+		this.posicion = posicion;
+		this.elemento = elemento;
+		this.superTecnicas = superTecnicas;
+		this.equipo = equipo;
+		this.temporada = temporada;
+		this.media = media;
+		this.capitan = false;
+		this.quimica = qumica;
 	}
 
 	public Posicion getPosicion() {
@@ -35,7 +35,7 @@ public class Jugador extends Persona {
 	}
 
 	public void setPosicion(Posicion posicion) {
-		Jugador.posicion = posicion;
+		this.posicion = posicion;
 	}
 
 	public Elemento getElemento() {
@@ -43,7 +43,7 @@ public class Jugador extends Persona {
 	}
 
 	public void setElemento(Elemento elemento) {
-		Jugador.elemento = elemento;
+		this.elemento = elemento;
 	}
 
 	public String[] getSuperTecnicas() {
@@ -51,7 +51,7 @@ public class Jugador extends Persona {
 	}
 
 	public void setSuperTecnicas(String[] superTecnicas) {
-		Jugador.superTecnicas = superTecnicas;
+		this.superTecnicas = superTecnicas;
 	}
 
 	public String getEquipo() {
@@ -59,7 +59,7 @@ public class Jugador extends Persona {
 	}
 
 	public void setEquipo(String equipo) {
-		Jugador.equipo = equipo;
+		this.equipo = equipo;
 	}
 
 	public Temporada getTemporada() {
@@ -67,7 +67,7 @@ public class Jugador extends Persona {
 	}
 
 	public void setTemporada(Temporada temporada) {
-		Jugador.temporada = temporada;
+		this.temporada = temporada;
 	}
 
 	public int getMedia() {
@@ -75,7 +75,7 @@ public class Jugador extends Persona {
 	}
 
 	public void setMedia(int media) {
-		Jugador.media = media;
+		this.media = media;
 	}
 
 	public boolean isCapitan() {
@@ -83,17 +83,18 @@ public class Jugador extends Persona {
 	}
 
 	public void setCapitan(boolean capitan) {
-		Jugador.capitan = capitan;
+		this.capitan = capitan;
 	}
 
-	public static int getQuimica() {
+	public int getQuimica() {
 		return quimica;
 	}
 
-	public static void setQuimica(int quimica) {
-		Jugador.quimica = quimica;
+	public void setQuimica(int quimica) {
+		this.quimica = quimica;
 	}
 	
 	
+
 	
 }

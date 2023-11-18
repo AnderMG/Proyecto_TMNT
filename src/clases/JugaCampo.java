@@ -5,65 +5,72 @@ import java.util.ArrayList;
 
 public class JugaCampo extends Jugador {
 	
-	protected static int ritmo;
-	protected static int regate;
-	protected static int tiro;
-	protected static int defensa;
-	protected static int fisico;
-	protected static int pase;
-
+	protected int ritmo;
+	protected int regate;
+	protected int tiro;
+	protected int defensa;
+	protected int fisico;
+	protected int pase;
+	
+	
 	public JugaCampo(String nombre, String apellido, Posicion posicion, Elemento elemento, String[] superTecnicas,
-			String equipo, Temporada temporada, int media, ArrayList<Integer> estadisticas, boolean capitan, int quimica) {
-		super(nombre, apellido, posicion, elemento, superTecnicas, equipo, temporada, media, estadisticas, capitan, quimica);
-		// TODO Auto-generated constructor stub
+			String equipo, Temporada temporada, int media, ArrayList<Integer> estadisticas, boolean capitan,
+			int qumica) {
+		super(nombre, apellido, posicion, elemento, superTecnicas, equipo, temporada, media, estadisticas, capitan, qumica);
+	}
+	
+	public JugaCampo(String nombre, String apellido) {
+		super(nombre, apellido);
 	}
 
-	public static int getRitmo() {
+	public int getRitmo() {
 		return ritmo;
 	}
 
-	public static void setRitmo(int ritmo) {
-		JugaCampo.ritmo = ritmo;
+	public void setRitmo(int ritmo) {
+		this.ritmo = ritmo;
 	}
 
-	public static int getRegate() {
+	public int getRegate() {
 		return regate;
 	}
 
-	public static void setRegate(int regate) {
-		JugaCampo.regate = regate;
+	public void setRegate(int regate) {
+		this.regate = regate;
 	}
 
-	public static int getTiro() {
+	public int getTiro() {
 		return tiro;
 	}
 
-	public static void setTiro(int tiro) {
-		JugaCampo.tiro = tiro;
+	public void setTiro(int tiro) {
+		this.tiro = tiro;
 	}
 
-	public static int getDefensa() {
+	public int getDefensa() {
 		return defensa;
 	}
 
-	public static void setDefensa(int defensa) {
-		JugaCampo.defensa = defensa;
+	public void setDefensa(int defensa) {
+		this.defensa = defensa;
 	}
 
-	public static int getFisico() {
+	public int getFisico() {
 		return fisico;
 	}
 
-	public static void setFisico(int fisico) {
-		JugaCampo.fisico = fisico;
+	public void setFisico(int fisico) {
+		this.fisico = fisico;
 	}
 
-	public static int getPase() {
+	public int getPase() {
 		return pase;
 	}
 
-	public static void setPase(int pase) {
-		JugaCampo.pase = pase;
+	public void setPase(int pase) {
+		this.pase = pase;
 	}
-
+	
+	
+	
 }

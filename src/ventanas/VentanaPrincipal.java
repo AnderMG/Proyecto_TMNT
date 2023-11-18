@@ -1,6 +1,7 @@
 package ventanas;
 
 import java.awt.BorderLayout;
+
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
@@ -26,13 +27,15 @@ import javax.swing.JPanel;
 
 import clases.Usuario;
 import utils.FondoEnVentana;
+import utils.HiloTiempoEnJuego;
+import utils.Quimica;
 
 
 public class VentanaPrincipal {
 	protected static boolean iniciadoSesion = false;
 	protected static Logger logger;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) { 
 		//Creamos el logger	
 		try {
 			logger = Logger.getLogger("ventanas.VentanaPrincipal");
@@ -43,6 +46,8 @@ public class VentanaPrincipal {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		
 				
 		//Creamos la venta
 		JFrame ventanaPrincipal = new JFrame();
@@ -60,7 +65,6 @@ public class VentanaPrincipal {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ventanaPrincipal.dispose();
-				
 			}
 		});
 		//Boton que inicia el juego
