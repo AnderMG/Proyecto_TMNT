@@ -29,9 +29,9 @@ public class VentanaElegirPlantilla extends JFrame{
 		setSize(800, 500);
 		setTitle("Plantilla " + formacion);
 		setLocationRelativeTo( null );
-		labelIcono.setBounds(0, 0, 50, 50);
+		labelIcono.setBounds(50, 50, 100, 175);
 		
-		SetImageLabel(labelIcono, "src/imagenes/fondo.jpg");
+		SetImageLabel(labelIcono, "src/imagenes/DefaultCardPeque.png");
 		
 		HiloTiempoEnJuego hiloDuracion = new HiloTiempoEnJuego();
 		
@@ -66,7 +66,6 @@ public class VentanaElegirPlantilla extends JFrame{
 		
 		add(labelIcono);
 		
-		add(new JLabel("HOLA"));
 		setVisible(true);
 		hiloDuracion.start();
 	}
