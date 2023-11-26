@@ -1,11 +1,13 @@
 package ventanas;
 
+import java.awt.GridLayout;
 import java.awt.Image;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 public class VentanaSeleccionJugadores extends JFrame {
@@ -33,17 +35,38 @@ public class VentanaSeleccionJugadores extends JFrame {
 		}
 		setLocationRelativeTo( null );
 		
+		JPanel panel = new JPanel(new GridLayout(1, 3, 30, 0));
+		
 		
 		JLabel foto = new JLabel();
-		foto.setBounds(0, 0, 70, 115);
+		foto.setBounds(0, 0, 325, 390);
 		
 		ImageIcon image = new ImageIcon("src/imagenes/Defensas/Aitor.jpg");
 		Icon icon = new ImageIcon(image.getImage().getScaledInstance(foto.getWidth(), foto.getHeight(), Image.SCALE_DEFAULT));
 		foto.setIcon(icon);
 		foto.repaint();
 		
-		add(foto);
+		JLabel foto1 = new JLabel();
+		foto1.setBounds(0, 0, 325, 390);
 		
+		ImageIcon image1 = new ImageIcon("src/imagenes/Defensas/Gabi.jpg");
+		Icon icon1 = new ImageIcon(image1.getImage().getScaledInstance(foto1.getWidth(), foto1.getHeight(), Image.SCALE_DEFAULT));
+		foto1.setIcon(icon1);
+		foto1.repaint();
+		
+		JLabel foto2 = new JLabel();
+		foto2.setBounds(0, 0, 325, 390);
+		
+		ImageIcon image2 = new ImageIcon("src/imagenes/Defensas/Ares.jpg");
+		Icon icon2 = new ImageIcon(image2.getImage().getScaledInstance(foto2.getWidth(), foto2.getHeight(), Image.SCALE_DEFAULT));
+		foto2.setIcon(icon);
+		foto2.repaint();
+		
+		panel.add(foto);
+		panel.add(foto1);
+		panel.add(foto2);
+		
+		add(panel);
 		
 		setVisible(true);
 		
