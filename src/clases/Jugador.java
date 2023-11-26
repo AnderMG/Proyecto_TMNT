@@ -3,6 +3,7 @@ package clases;
 import java.util.ArrayList;
 
 public class Jugador extends Persona {
+	protected int ID;
 	protected Posicion posicion;
 	protected Elemento elemento;
 	protected String[] superTecnicas;
@@ -28,6 +29,25 @@ public class Jugador extends Persona {
 		this.media = media;
 		this.capitan = false;
 		this.quimica = qumica;
+	}
+	
+	// para crear jugadores con los ficheros
+	
+	public Jugador(int ID, Elemento elemento, Posicion posicion, Temporada temporada, String nombre, int media) {
+		super(nombre, nombre);
+		this.ID = ID;
+		this.elemento = elemento;
+		this.posicion = posicion;
+		this.temporada = temporada;
+		this.media = media;
+	}
+	
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
 	}
 
 	public Posicion getPosicion() {
