@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/imagenes/Login.png</name>
-			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/OneDrive%20-%20Universidad%20de%20Deusto/Escritorio/programacion%20proyecto/Login.png</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
