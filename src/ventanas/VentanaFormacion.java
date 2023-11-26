@@ -18,21 +18,31 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+
+import utils.FondoEnVentana;
 
 public class VentanaFormacion extends JFrame{
+	
+	private JPanel contentPane;
 	private JPanel panelFormacion = new JPanel();
 	private ArrayList<String> formaciones = new ArrayList<>();
 
 	public VentanaFormacion() {
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setSize(800, 500);
-		setLayout(new BorderLayout());
 		setTitle("Formacion");
 		setLocationRelativeTo( null );
+		contentPane = new JPanel();
+		contentPane = FondoEnVentana.panelConFondo("BannerFondo.png");
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
 		
 		//Añadimos un label
 		JLabel etiquetaIndicacion = new JLabel("Elige una de las siguientes formaciones para iniciar el juego", SwingConstants.CENTER);
-		add(etiquetaIndicacion, BorderLayout.NORTH);
+		etiquetaIndicacion.setBounds(25, 55, 100, 26);
 		
 		//Añadimos las formaciones
 		formaciones.add("3-1-1");
@@ -81,17 +91,17 @@ public class VentanaFormacion extends JFrame{
 		});
 		
 		//Creamos el panel y añadimos los botones
-		panelFormacion.setLayout(new GridLayout(3, 1, 0, 10));
+		contentPane.add(panelFormacion);
+		panelFormacion.setBounds(218, 104, 373, 292);
+		panelFormacion.setOpaque(false);
+		panelFormacion.setLayout(null);
+		panelFormacion.add(etiquetaIndicacion);
+		btnFor1.setBounds(25, 13, 300, 40);
 		panelFormacion.add(btnFor1);
+		btnFor2.setBounds(25, 108, 329, 26);
 		panelFormacion.add(btnFor2);
+		btnFor3.setBounds(25, 243, 130, 29);
 		panelFormacion.add(btnFor3);
-		
-//		add(panelFormacion, BorderLayout.CENTER);
-		
-		//Banner de fondo
-//		JPanel panelFondoFormacion = VentanaPrincipal.panelConFondo("bannerFondo.jpg");
-//		panelFondoFormacion.setLayout(new BorderLayout());
-//		panelFondoFormacion.add(panelFormacion, BorderLayout.NORTH);
 		
 		add(panelFormacion, BorderLayout.CENTER);
 		
