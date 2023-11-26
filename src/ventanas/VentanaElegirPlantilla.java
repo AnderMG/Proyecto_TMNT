@@ -1,7 +1,9 @@
 package ventanas;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -9,6 +11,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.logging.Level;
 
 import javax.swing.BoxLayout;
 import javax.swing.Icon;
@@ -16,6 +19,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
 import javax.swing.SwingConstants;
 
 import utils.FondoEnVentana;
@@ -23,10 +27,15 @@ import utils.HiloTiempoEnJuego;
 
 public class VentanaElegirPlantilla extends JFrame{
 	JPanel panelAlineacion = new JPanel();
+	JPanel panelQuimiValo = new JPanel();
 	JPanel panelPortero = FondoEnVentana.panelConFondo("terrenoPor.png");
 	JPanel panelDefensa = FondoEnVentana.panelConFondo("terrenoDef.png");
 	JPanel panelMedio = FondoEnVentana.panelConFondo("terrenoMed.png");
 	JPanel panelDelantero = FondoEnVentana.panelConFondo("terrenoDel.png");
+	JProgressBar barraQumica = new JProgressBar(0, 100);
+	JProgressBar barraValoracion = new JProgressBar(0, 100);
+//	int contador = 0;
+//	Thread hiloTiempoPartida;
 	String ruta = "src/imagenes/DefaultCardPeque.png";
 	VentanaSeleccionJugadores ventSeleccion;
 
@@ -62,11 +71,41 @@ public class VentanaElegirPlantilla extends JFrame{
 		panelAlineacion.add(panelPortero);
 		
 		
+//		JLabel segundos = new JLabel("segundos: " + contador);
+//		
+//		hiloTiempoPartida = new Thread(new Runnable() {
+//			
+//			@Override
+//			public void run() {
+//				while(!hiloTiempoPartida.isInterrupted()) {
+//					try {
+//						segundos.setText("segundos: " + contador);
+//						Thread.sleep(1000);
+//						contador++;
+//					}catch (Exception e) {
+//					}
+//					
+//				}
+//				
+//				
+//			}
+//		});
+		
+		panelQuimiValo.setLayout(new GridLayout(2, 2));
+//		panelQuimiValo.add(new JLabel("Temporizacion partida", SwingConstants.CENTER));
+		panelQuimiValo.setForeground(Color.white);
+		panelQuimiValo.add(new JLabel("Valoracion: ", SwingConstants.RIGHT));
+		panelQuimiValo.add(barraValoracion);
+//		panelQuimiValo.add(segundos);
+		panelQuimiValo.add(new JLabel("Quimica: ", SwingConstants.RIGHT));
+		panelQuimiValo.add(barraQumica);
+		
 		addWindowListener(new WindowAdapter() {
 
 			@Override
 			public void windowClosed(WindowEvent e) {
 				hiloDuracion.interrupt();
+				VentanaPrincipal.logger.log(Level.FINE, "Se ha terminado la partida");
 				System.out.println("Se ha finalizado el juego");
 				if (!(ventSeleccion == null)) {
 					ventSeleccion.dispose();
@@ -75,7 +114,9 @@ public class VentanaElegirPlantilla extends JFrame{
 			}
 			
 		});
-		add(panelAlineacion);
+		add(panelQuimiValo, BorderLayout.NORTH);
+		add(panelAlineacion, BorderLayout.CENTER);
+		
 		
 //		addWindowListener(new WindowAdapter() {
 //
@@ -114,6 +155,7 @@ public class VentanaElegirPlantilla extends JFrame{
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					ventSeleccion = new VentanaSeleccionJugadores(posicion);
+					VentanaPrincipal.logger.log(Level.FINE, "Se ha abierto la ventana de seleccionde jugador");
 					super.mouseClicked(e);
 				}
 				

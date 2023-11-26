@@ -43,7 +43,7 @@ public class VentanaFormacion extends JFrame{
 		
 		//Añadimos un label
 		JLabel etiquetaIndicacion = new JLabel("Elige una de las siguientes formaciones para iniciar el juego", SwingConstants.CENTER);
-		etiquetaIndicacion.setBounds(20, 0, 340, 25);
+		etiquetaIndicacion.setBounds(20, -4, 340, 25);
 		etiquetaIndicacion.setForeground(Color.BLACK);
 		
 		//Añadimos las formaciones

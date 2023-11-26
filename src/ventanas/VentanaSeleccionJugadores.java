@@ -34,10 +34,11 @@ public class VentanaSeleccionJugadores extends JFrame {
 			break;
 		}
 		setLocationRelativeTo( null );
+		setResizable(false);
 		
 		JPanel panel = new JPanel(new GridLayout(1, 3, 30, 0));
 		
-		
+		//Imagenes de prueba hasta implementar la funcion final
 		JLabel foto = new JLabel();
 		foto.setBounds(0, 0, 325, 390);
 		
@@ -57,9 +58,9 @@ public class VentanaSeleccionJugadores extends JFrame {
 		JLabel foto2 = new JLabel();
 		foto2.setBounds(0, 0, 325, 390);
 		
-		ImageIcon image2 = new ImageIcon("src/imagenes/Defensas/Ares.jpg");
+		ImageIcon image2 = new ImageIcon("src/imagenes/Defensas/Goldie.jpg");
 		Icon icon2 = new ImageIcon(image2.getImage().getScaledInstance(foto2.getWidth(), foto2.getHeight(), Image.SCALE_DEFAULT));
-		foto2.setIcon(icon);
+		foto2.setIcon(icon2);
 		foto2.repaint();
 		
 		panel.add(foto);
