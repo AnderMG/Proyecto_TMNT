@@ -1,6 +1,11 @@
 package ventanas;
 
+import java.awt.Image;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 public class VentanaSeleccionJugadores extends JFrame {
@@ -27,6 +32,18 @@ public class VentanaSeleccionJugadores extends JFrame {
 			break;
 		}
 		setLocationRelativeTo( null );
+		
+		
+		JLabel foto = new JLabel();
+		foto.setBounds(0, 0, 70, 115);
+		
+		ImageIcon image = new ImageIcon("src/imagenes/Defensas/Aitor.jpg");
+		Icon icon = new ImageIcon(image.getImage().getScaledInstance(foto.getWidth(), foto.getHeight(), Image.SCALE_DEFAULT));
+		foto.setIcon(icon);
+		foto.repaint();
+		
+		add(foto);
+		
 		
 		setVisible(true);
 		

@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import clases.Usuario;
+import utils.FondoEnVentana;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -35,8 +36,8 @@ public class Login extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setSize(800, 500);
 		setLocationRelativeTo( null );
-		contentPane = new JPanel();
-		contentPane.setBackground(Color.DARK_GRAY);
+		contentPane = FondoEnVentana.panelConFondo("Login.png");
+//		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
