@@ -35,7 +35,7 @@ public class VentanaFormacion extends JFrame{
 		setTitle("Formacion");
 		setLocationRelativeTo( null );
 		contentPane = new JPanel();
-		contentPane = FondoEnVentana.panelConFondo("bannerFondo.jpg");
+		contentPane = FondoEnVentana.panelConFondo("terrenoJuego.png");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -44,7 +44,7 @@ public class VentanaFormacion extends JFrame{
 		//Añadimos un label
 		JLabel etiquetaIndicacion = new JLabel("Elige una de las siguientes formaciones para iniciar el juego", SwingConstants.CENTER);
 		etiquetaIndicacion.setBounds(20, 0, 340, 25);
-		etiquetaIndicacion.setForeground(Color.white);
+		etiquetaIndicacion.setForeground(Color.BLACK);
 		
 		//Añadimos las formaciones
 		formaciones.add("3-1-1");
@@ -94,16 +94,19 @@ public class VentanaFormacion extends JFrame{
 		
 		//Creamos el panel y añadimos los botones
 		contentPane.add(panelFormacion);
-		panelFormacion.setBounds(218, 104, 373, 292);
+		panelFormacion.setBounds(218, 60, 373, 292);
 		panelFormacion.setOpaque(false);
 		panelFormacion.setLayout(null);
 		panelFormacion.add(etiquetaIndicacion);
-		btnFor1.setBounds(25, 35, 329, 33);
+		btnFor1.setBounds(25, 65, 329, 33);
 		panelFormacion.add(btnFor1);
-		btnFor2.setBounds(25, 125, 329, 33);
+		btnFor2.setBounds(25, 160, 329, 33);
 		panelFormacion.add(btnFor2);
-		btnFor3.setBounds(25, 215, 329, 33);
+		btnFor3.setBounds(25, 255, 329, 33);
 		panelFormacion.add(btnFor3);
+		btnFor1.setBackground(Color.GREEN);
+		btnFor2.setBackground(Color.GREEN);
+		btnFor3.setBackground(Color.GREEN);
 		
 		add(panelFormacion, BorderLayout.CENTER);
 		
