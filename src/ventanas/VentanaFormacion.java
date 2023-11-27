@@ -5,6 +5,7 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -42,8 +43,8 @@ public class VentanaFormacion extends JFrame{
 		
 		
 		//Añadimos un label
-		JLabel etiquetaIndicacion = new JLabel("Elige una de las siguientes formaciones para iniciar el juego", SwingConstants.CENTER);
-		etiquetaIndicacion.setBounds(20, -4, 340, 25);
+		JLabel etiquetaIndicacion = new JLabel("Elige una de las siguientes formaciones", SwingConstants.CENTER);
+		etiquetaIndicacion.setBounds(0, -4, 400, 50);
 		etiquetaIndicacion.setForeground(Color.BLACK);
 		
 		//Añadimos las formaciones
@@ -94,16 +95,19 @@ public class VentanaFormacion extends JFrame{
 		
 		//Creamos el panel y añadimos los botones
 		contentPane.add(panelFormacion);
-		panelFormacion.setBounds(218, 60, 373, 292);
+		panelFormacion.setBounds(200, 60, 500, 292);
 		panelFormacion.setOpaque(false);
 		panelFormacion.setLayout(null);
 		panelFormacion.add(etiquetaIndicacion);
-		btnFor1.setBounds(25, 65, 329, 33);
+		btnFor1.setBounds(158, 65, 70, 33);
 		panelFormacion.add(btnFor1);
-		btnFor2.setBounds(25, 160, 329, 33);
+		btnFor2.setBounds(158, 160, 70, 33);
 		panelFormacion.add(btnFor2);
-		btnFor3.setBounds(25, 255, 329, 33);
+		btnFor3.setBounds(158, 255, 70, 33);
 		panelFormacion.add(btnFor3);
+		Font original = etiquetaIndicacion.getFont();
+		Font tamaño = new Font(original.getName(), Font.BOLD, 20);
+		etiquetaIndicacion.setFont(tamaño);
 		btnFor1.setBackground(Color.GREEN);
 		btnFor2.setBackground(Color.GREEN);
 		btnFor3.setBackground(Color.GREEN);
