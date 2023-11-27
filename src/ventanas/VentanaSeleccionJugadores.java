@@ -2,6 +2,8 @@ package ventanas;
 
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -9,6 +11,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+
+import clases.JugaCampo;
+import utils.LeerJugadorCampo;
 
 public class VentanaSeleccionJugadores extends JFrame {
 
@@ -42,7 +47,11 @@ public class VentanaSeleccionJugadores extends JFrame {
 		JLabel foto = new JLabel();
 		foto.setBounds(0, 0, 325, 390);
 		
-		ImageIcon image = new ImageIcon("src/imagenes/Defensas/Aitor.jpg");
+		ArrayList<JugaCampo> listaDefensas = LeerJugadorCampo.leerJugaCampo("Defensas.txt");
+		JugaCampo defensa1 = listaDefensas.get((int) Math.floor((Math.random()*listaDefensas.size())-1));
+		listaDefensas.remove(defensa1);
+		
+		ImageIcon image = new ImageIcon("src/imagenes/Defensas/" + defensa1.getNombre() +".jpg");
 		Icon icon = new ImageIcon(image.getImage().getScaledInstance(foto.getWidth(), foto.getHeight(), Image.SCALE_DEFAULT));
 		foto.setIcon(icon);
 		foto.repaint();
@@ -50,7 +59,10 @@ public class VentanaSeleccionJugadores extends JFrame {
 		JLabel foto1 = new JLabel();
 		foto1.setBounds(0, 0, 325, 390);
 		
-		ImageIcon image1 = new ImageIcon("src/imagenes/Defensas/Gabi.jpg");
+		JugaCampo defensa2 = listaDefensas.get((int) Math.floor((Math.random()*listaDefensas.size())-1));
+		listaDefensas.remove(defensa2);
+		
+		ImageIcon image1 = new ImageIcon("src/imagenes/Defensas/"+defensa2.getNombre()+".jpg");
 		Icon icon1 = new ImageIcon(image1.getImage().getScaledInstance(foto1.getWidth(), foto1.getHeight(), Image.SCALE_DEFAULT));
 		foto1.setIcon(icon1);
 		foto1.repaint();
@@ -58,7 +70,10 @@ public class VentanaSeleccionJugadores extends JFrame {
 		JLabel foto2 = new JLabel();
 		foto2.setBounds(0, 0, 325, 390);
 		
-		ImageIcon image2 = new ImageIcon("src/imagenes/Defensas/Goldie.jpg");
+		JugaCampo defensa3 = listaDefensas.get((int) Math.floor((Math.random()*listaDefensas.size())-1));
+		listaDefensas.remove(defensa3);
+		
+		ImageIcon image2 = new ImageIcon("src/imagenes/Defensas/"+defensa3.getNombre()+".jpg");
 		Icon icon2 = new ImageIcon(image2.getImage().getScaledInstance(foto2.getWidth(), foto2.getHeight(), Image.SCALE_DEFAULT));
 		foto2.setIcon(icon2);
 		foto2.repaint();
