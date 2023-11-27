@@ -39,28 +39,35 @@ public class QuimicaTest {
 		
 		return Arrays.asList(
 			//Objetos quimica con 2 jugadores
-			new Object[] {0, Quimica.calcularQuimica2Jugadores(jugador1, jugador2)},
-			new Object[] {5, Quimica.calcularQuimica2Jugadores(jugador3, jugador2)},
-			new Object[] {10, Quimica.calcularQuimica2Jugadores(jugador4, jugador5)},
+			new Object[] {0, Quimica.calcularQuimicaJugadores(jugador1, jugador2)},
+			new Object[] {5, Quimica.calcularQuimicaJugadores(jugador3, jugador2)},
+			new Object[] {10, Quimica.calcularQuimicaJugadores(jugador4, jugador5)}
 			//Objetos quimica con 3 jugadores
-			new Object[] {0, Quimica.calcularQuimica3Jugadores(jugador1, jugador2, jugador3)},
-			new Object[] {5, Quimica.calcularQuimica3Jugadores(jugador2, jugador3, jugador4)},
-			new Object[] {10, Quimica.calcularQuimica3Jugadores(jugador3, jugador4, jugador5)}
+
 		);
 				
 	}
 	@Parameter(0)
 	public int esperado;
+	public int esperado1 = 10;
+	public int esperado2 = 20;
+	public int esperado3 = 0;
 	
 	@Parameter(1)
 	public int obtenido;
+	public int obtenido1 = Quimica.calcularQuimicaJugadores(jugador3, jugador4);
+	public int obtenido2 = Quimica.calcularQuimicaJugadores(jugador4, jugador5);
+	public int obtenido3 = Quimica.calcularQuimicaJugadores(jugador1, jugador2);
 
-	
 	@Test
 	public void testQuimica2() {
 		assertEquals(esperado, obtenido);
-		
+		System.out.println(obtenido1);
+		System.out.println(obtenido2);
+		System.out.println(obtenido3);
 	}
+	
+	
 	
 }
 	
