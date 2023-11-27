@@ -52,7 +52,9 @@ public class Quimica {
 			int quimica8 = calcularQuimicaJugadores(jugador4,jugador5); // md dli
 			quimica = quimica + quimica1 + quimica2 + quimica3 + quimica4 + quimica5 + quimica6 + quimica7 + quimica8;
 		}
-		
+		if (quimica > 100) {
+			quimica = 100;
+		}
 		return quimica;
 	}
 	
