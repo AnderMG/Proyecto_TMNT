@@ -47,8 +47,6 @@ public class VentanaPrincipal {
 			e.printStackTrace();
 		}
 		
-		
-				
 		//Creamos la venta
 		JFrame ventanaPrincipal = new JFrame();
 		ventanaPrincipal.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -109,7 +107,7 @@ public class VentanaPrincipal {
 		panelBotones.add(btnIniciarSesion);
 		panelBotones.add(btnJugar);
 		
-		JPanel panelFondo = FondoEnVentana.panelConFondo("fondo.jpg");
+		JPanel panelFondo = FondoEnVentana.panelConFondo("fondoPrincipal.jpg");
 		panelFondo.setLayout(new BorderLayout());
 		panelFondo.add(panelBotones, BorderLayout.SOUTH);
 		
