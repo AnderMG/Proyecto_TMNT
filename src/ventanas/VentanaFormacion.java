@@ -55,6 +55,7 @@ public class VentanaFormacion extends JFrame{
 		formaciones.add("1-3-1");
 		
 		
+		
 		//Quitamos 2 formaciones de manera aleatoria y creamos 3 botones con las restantes
 		for (int i = 0; i < 2; i++) {
 			int p = (int)(Math.floor(Math.random()*(5-i)));

@@ -52,6 +52,29 @@ public class Quimica {
 			int quimica8 = calcularQuimicaJugadores(jugador4,jugador5); // md dli
 			quimica = quimica + quimica1 + quimica2 + quimica3 + quimica4 + quimica5 + quimica6 + quimica7 + quimica8;
 		}
+		if(formacion == "2-1-2") {
+			int quimica1 = calcularQuimicaJugadores(jugador1,jugador2); // por dfi
+			int quimica2 = calcularQuimicaJugadores(jugador1,jugador3); // por dfd
+			int quimica3 = calcularQuimicaJugadores(jugador2,jugador3); // dfi dfd
+			int quimica4 = calcularQuimicaJugadores(jugador2,jugador4); // dfi mi
+			int quimica5 = calcularQuimicaJugadores(jugador3,jugador4); // dfd md
+			int quimica6 = calcularQuimicaJugadores(jugador4,jugador5); // mc dl
+			int quimica7 = calcularQuimicaJugadores(jugador4,jugador6); // mc dl
+			int quimica8 = calcularQuimicaJugadores(jugador5,jugador6); // dl dl
+			quimica = quimica + quimica1 + quimica2 + quimica3 + quimica4 + quimica5 + quimica6 + quimica7 + quimica8;
+		}
+		if(formacion == "3-1-1") {
+			int quimica1 = calcularQuimicaJugadores(jugador1,jugador2); // por dfi
+			int quimica2 = calcularQuimicaJugadores(jugador1,jugador3); // por dfd
+			int quimica3 = calcularQuimicaJugadores(jugador1,jugador4); // por dfc
+			int quimica4 = calcularQuimicaJugadores(jugador2,jugador4); // dfi dfc
+			int quimica5 = calcularQuimicaJugadores(jugador3,jugador4); // dfd dfc
+			int quimica6 = calcularQuimicaJugadores(jugador2,jugador5); // dfi mc
+			int quimica7 = calcularQuimicaJugadores(jugador3,jugador5); // dfd mc
+			int quimica8 = calcularQuimicaJugadores(jugador5,jugador6); // mc dl
+			quimica = quimica + quimica1 + quimica2 + quimica3 + quimica4 + quimica5 + quimica6 + quimica7 + quimica8;
+		}
+
 		if (quimica > 100) {
 			quimica = 100;
 		}
