@@ -20,11 +20,11 @@ import utils.Quimica;
 
 public class QuimicaTest {
 	
-	static JugaCampo jugador1 = new JugaCampo("Zinedine", "Zidane", Posicion.MEDIOCENTRO, Elemento.BOSQUE, null, null, Temporada.TEMPORADA2, 0, null, false, 0);
-	static JugaCampo jugador2 = new JugaCampo("Lionel", "Messi", Posicion.DELANTERO, Elemento.AIRE, null, null, Temporada.TEMPORADA3, 0, null, false, 0);
-	static JugaCampo jugador3 = new JugaCampo("Cristiano", "Ronaldo", Posicion.DELANTERO, Elemento.FUEGO, null, null, Temporada.TEMPORADA3, 0, null, false, 0);
-	static JugaCampo jugador4 = new JugaCampo("Vinicius", "Junior", Posicion.DELANTERO, Elemento.FUEGO, null, null, Temporada.TEMPORADA4, 0, null, false, 0);
-	static JugaCampo jugador5 = new JugaCampo("Ferran", "Torres", Posicion.DELANTERO, Elemento.FUEGO, null, null, Temporada.TEMPORADA4, 0, null, false, 0);
+	static JugaCampo jugador1 = new JugaCampo(1, "Zinedine", "Zidane", Posicion.MEDIOCENTRO, Elemento.BOSQUE, null, null, Temporada.TEMPORADA2, 0, null, false, 0);
+	static JugaCampo jugador2 = new JugaCampo(2, "Lionel", "Messi", Posicion.DELANTERO, Elemento.AIRE, null, null, Temporada.TEMPORADA3, 0, null, false, 0);
+	static JugaCampo jugador3 = new JugaCampo(3, "Cristiano", "Ronaldo", Posicion.DELANTERO, Elemento.FUEGO, null, null, Temporada.TEMPORADA3, 0, null, false, 0);
+	static JugaCampo jugador4 = new JugaCampo(4, "Vinicius", "Junior", Posicion.DELANTERO, Elemento.FUEGO, null, null, Temporada.TEMPORADA4, 0, null, false, 0);
+	static JugaCampo jugador5 = new JugaCampo(4, "Ferran", "Torres", Posicion.DELANTERO, Elemento.FUEGO, null, null, Temporada.TEMPORADA4, 0, null, false, 0);
 	
 	@Before
 	public void setUp() throws Exception {

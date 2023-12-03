@@ -18,9 +18,10 @@ public class Jugador extends Persona {
 		super(nombre, apellido);
 	}
 
-	public Jugador(String nombre, String apellido, Posicion posicion, Elemento elemento, String[] superTecnicas,
+	public Jugador(int ID, String nombre, String apellido, Posicion posicion, Elemento elemento, String[] superTecnicas,
 			String equipo, Temporada temporada, int media, ArrayList<Integer> estadisticas, boolean capitan, int qumica) {
 		super(nombre, apellido);
+		this.ID = ID;
 		this.posicion = posicion;
 		this.elemento = elemento;
 		this.superTecnicas = superTecnicas;

@@ -13,10 +13,10 @@ public class JugaCampo extends Jugador {
 	protected int pase;
 	
 	
-	public JugaCampo(String nombre, String apellido, Posicion posicion, Elemento elemento, String[] superTecnicas,
+	public JugaCampo(int ID, String nombre, String apellido, Posicion posicion, Elemento elemento, String[] superTecnicas,
 			String equipo, Temporada temporada, int media, ArrayList<Integer> estadisticas, boolean capitan,
 			int qumica) {
-		super(nombre, apellido, posicion, elemento, superTecnicas, equipo, temporada, media, estadisticas, capitan, qumica);
+		super(ID, nombre, apellido, posicion, elemento, superTecnicas, equipo, temporada, media, estadisticas, capitan, qumica);
 	}
 	
 	public JugaCampo(String nombre, String apellido) {

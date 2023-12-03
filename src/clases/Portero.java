@@ -12,10 +12,10 @@ public class Portero extends Jugador {
 	protected int saque;
 	
 	
-	public Portero(String nombre, String apellido, Posicion posicion, Elemento elemento, String[] superTecnicas,
+	public Portero(int ID, String nombre, String apellido, Posicion posicion, Elemento elemento, String[] superTecnicas,
 			String equipo, Temporada temporada, int media, ArrayList<Integer> estadisticas, boolean capitan,
 			int qumica) {
-		super(nombre, apellido, posicion, elemento, superTecnicas, equipo, temporada, media, estadisticas, capitan, qumica);
+		super(ID, nombre, apellido, posicion, elemento, superTecnicas, equipo, temporada, media, estadisticas, capitan, qumica);
 	}
 	
 	public Portero(String nombre, String apellido) {

@@ -24,6 +24,7 @@ import javax.swing.SwingConstants;
 
 import utils.FondoEnVentana;
 import utils.HiloTiempoEnJuego;
+import utils.Quimica;
 
 public class VentanaElegirPlantilla extends JFrame{
 	JPanel panelAlineacion = new JPanel();
@@ -32,8 +33,9 @@ public class VentanaElegirPlantilla extends JFrame{
 	JPanel panelDefensa = FondoEnVentana.panelConFondo("terrenoDef.png");
 	JPanel panelMedio = FondoEnVentana.panelConFondo("terrenoMed.png");
 	JPanel panelDelantero = FondoEnVentana.panelConFondo("terrenoDel.png");
-	JProgressBar barraQumica = new JProgressBar(0, 100);
-	JProgressBar barraValoracion = new JProgressBar(0, 100);
+	protected static JProgressBar barraQumica = new JProgressBar(0, 100);
+	protected static JProgressBar barraValoracion = new JProgressBar(0, 100);
+	protected static boolean plantillaCompleta = false;
 //	int contador = 0;
 //	Thread hiloTiempoPartida;
 	String ruta = "src/imagenes/DefaultCardPeque.png";
@@ -100,6 +102,7 @@ public class VentanaElegirPlantilla extends JFrame{
 		panelQuimiValo.add(new JLabel("Quimica: ", SwingConstants.RIGHT));
 		panelQuimiValo.add(barraQumica);
 		
+		
 		addWindowListener(new WindowAdapter() {
 
 			@Override
@@ -154,9 +157,9 @@ public class VentanaElegirPlantilla extends JFrame{
 
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					ventSeleccion = new VentanaSeleccionJugadores(posicion);
-					VentanaPrincipal.logger.log(Level.FINE, "Se ha abierto la ventana de seleccionde jugador");
-					super.mouseClicked(e);
+					ventSeleccion = new VentanaSeleccionJugadores(posicion, etiqueta);
+					VentanaPrincipal.logger.log(Level.FINE, "Se ha abierto la ventana de seleccion de jugador");
+					super.mouseClicked(e);					
 				}
 				
 			});
@@ -166,11 +169,10 @@ public class VentanaElegirPlantilla extends JFrame{
 	}
 	
 	//Metodo insertar la imagen en la etiqueta
-	public void SetImageLabel (JLabel etiqueta, String ruta) {
+	public static void SetImageLabel (JLabel etiqueta, String ruta) {
 		ImageIcon image = new ImageIcon(ruta);
 		Icon icon = new ImageIcon(image.getImage().getScaledInstance(etiqueta.getWidth(), etiqueta.getHeight(), Image.SCALE_DEFAULT));
 		etiqueta.setIcon(icon);
-		repaint();
 	}
 	
 }
