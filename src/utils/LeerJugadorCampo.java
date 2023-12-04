@@ -16,6 +16,10 @@ public class LeerJugadorCampo {
 	public static ArrayList<JugaCampo> listaJugadoresMediocentros = new ArrayList<>();
 	public static ArrayList<JugaCampo> listaJugadoresDelanteros = new ArrayList<>();
 	public static ArrayList<Portero> listaJugadoresPorteros = new ArrayList<>();
+	public static ArrayList<JugaCampo> listaDefensasTotales = new ArrayList<>();
+	public static ArrayList<JugaCampo> listaMediocentrosTotales = new ArrayList<>();
+	public static ArrayList<JugaCampo> listaDelanterosTotales = new ArrayList<>();
+	public static ArrayList<Portero> listaPorterosTotales = new ArrayList<>();
 	
 	///////////////////////////////////LEER DEFENSAS///////////////////////////////////////////////////
 	public static ArrayList<JugaCampo> leerJugaDefensas(String nombreArchivo){
@@ -29,9 +33,11 @@ public class LeerJugadorCampo {
 				if (campos.length == 6) {
 					JugaCampo jugador = new JugaCampo((int) Integer.parseInt(campos[0]), campos[4], null, Posicion.valueOf(campos[2]), Elemento.valueOf(campos[1]), null, null, Temporada.valueOf(campos[3]), Integer.parseInt(campos[5]), null, false, Integer.parseInt(campos[0]));
 					listaJugadoresDefensas.add(jugador);
+					listaDefensasTotales.add(jugador);
 				}else {
 					JugaCampo jugador = new JugaCampo((int) Integer.parseInt(campos[0]), campos[4], campos[5], Posicion.valueOf(campos[2]), Elemento.valueOf(campos[1]), null, null, Temporada.valueOf(campos[3]), Integer.parseInt(campos[6]), null, false, Integer.parseInt(campos[0]));
 					listaJugadoresDefensas.add(jugador);
+					listaDefensasTotales.add(jugador);
 				}
 				
 			}			
@@ -55,9 +61,11 @@ public class LeerJugadorCampo {
 				if (campos.length == 6) {
 					JugaCampo jugador = new JugaCampo((int) Integer.parseInt(campos[0]), campos[4], null, Posicion.valueOf(campos[2]), Elemento.valueOf(campos[1]), null, null, Temporada.valueOf(campos[3]), Integer.parseInt(campos[5]), null, false, Integer.parseInt(campos[0]));
 					listaJugadoresMediocentros.add(jugador);
+					listaMediocentrosTotales.add(jugador);
 				}else {
 					JugaCampo jugador = new JugaCampo((int) Integer.parseInt(campos[0]), campos[4], campos[5], Posicion.valueOf(campos[2]), Elemento.valueOf(campos[1]), null, null, Temporada.valueOf(campos[3]), Integer.parseInt(campos[6]), null, false, Integer.parseInt(campos[0]));
 					listaJugadoresMediocentros.add(jugador);
+					listaMediocentrosTotales.add(jugador);
 				}
 				
 			}			
@@ -81,9 +89,11 @@ public class LeerJugadorCampo {
 				if (campos.length == 6) {
 					JugaCampo jugador = new JugaCampo((int) Integer.parseInt(campos[0]), campos[4], null, Posicion.valueOf(campos[2]), Elemento.valueOf(campos[1]), null, null, Temporada.valueOf(campos[3]), Integer.parseInt(campos[5]), null, false, Integer.parseInt(campos[0]));
 					listaJugadoresDelanteros.add(jugador);
+					listaDelanterosTotales.add(jugador);
 				}else {
 					JugaCampo jugador = new JugaCampo((int) Integer.parseInt(campos[0]), campos[4], campos[5], Posicion.valueOf(campos[2]), Elemento.valueOf(campos[1]), null, null, Temporada.valueOf(campos[3]), Integer.parseInt(campos[6]), null, false, Integer.parseInt(campos[0]));
 					listaJugadoresDelanteros.add(jugador);
+					listaDelanterosTotales.add(jugador);
 				}
 				
 			}			
@@ -108,9 +118,11 @@ public class LeerJugadorCampo {
 				if (campos.length == 6) {
 					Portero portero = new Portero ((int) Integer.parseInt(campos[0]), campos[4], null, Posicion.valueOf(campos[2]), Elemento.valueOf(campos[1]), null, null, Temporada.valueOf(campos[3]), Integer.parseInt(campos[5]), null, false, Integer.parseInt(campos[0]));
 					listaJugadoresPorteros.add(portero);
+					listaPorterosTotales.add(portero);
 				}else {
 					Portero portero = new Portero((int) Integer.parseInt(campos[0]), campos[4], campos[5], Posicion.valueOf(campos[2]), Elemento.valueOf(campos[1]), null, null, Temporada.valueOf(campos[3]), Integer.parseInt(campos[6]), null, false, Integer.parseInt(campos[0]));
 					listaJugadoresPorteros.add(portero);
+					listaPorterosTotales.add(portero);
 				}
 				
 			}			

@@ -3,6 +3,8 @@ package ventanas;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -36,6 +38,10 @@ public class VentanaElegirPlantilla extends JFrame{
 	protected static JProgressBar barraQumica = new JProgressBar(0, 100);
 	protected static JProgressBar barraValoracion = new JProgressBar(0, 100);
 	protected static boolean plantillaCompleta = false;
+	protected static int numMaxClickPor = 1;
+	protected static int numMaxClickDef;
+	protected static int numMaxClickMed;
+	protected static int numMaxClickDel;
 //	int contador = 0;
 //	Thread hiloTiempoPartida;
 	String ruta = "src/imagenes/DefaultCardPeque.png";
@@ -46,25 +52,29 @@ public class VentanaElegirPlantilla extends JFrame{
 		setSize(1000, 800);
 		setTitle("Plantilla " + formacion);
 		setLocationRelativeTo( null );
+		setResizable(false);
 		
 		HiloTiempoEnJuego hiloDuracion = new HiloTiempoEnJuego();
 		
 		int numeroDefensas = Integer.parseInt(formacion.substring(0, 1));
 		int numeroMedios = Integer.parseInt(formacion.substring(2, 3));
 		int numeroDelanteros = Integer.parseInt(formacion.substring(4, 5));
+		numMaxClickDef = numeroDefensas;
+		numMaxClickMed = numeroMedios;
+		numMaxClickDel = numeroDelanteros;
 		
 		System.out.println("Numero defensas: " + numeroDefensas + "\nNumero medios: " + numeroMedios + "\nNumero Delanteros: " + numeroDelanteros);
 		
 		panelAlineacion.setLayout(new BoxLayout(panelAlineacion, BoxLayout.Y_AXIS));
 		
-		panelDelantero.setLayout(new GridLayout(1, numeroDelanteros, 0, 0));
-		panelMedio.setLayout(new GridLayout(1, numeroMedios, 0, 0));
-		panelDefensa.setLayout(new GridLayout(1, numeroDefensas, 0, 0));
+		panelDelantero.setLayout(new FlowLayout(FlowLayout.CENTER, 600/numeroDelanteros, 0));
+		panelMedio.setLayout(new FlowLayout(FlowLayout.CENTER, 600/numeroMedios, 0));
+		panelDefensa.setLayout(new FlowLayout(FlowLayout.CENTER, 600/numeroDefensas, 0));
 		
-		panelDelantero = crearAlineacion(numeroDelanteros, panelDelantero, 4);
-		panelMedio = crearAlineacion(numeroMedios, panelMedio, 3);
-		panelDefensa = crearAlineacion(numeroDefensas, panelDefensa, 2);
-		panelPortero = crearAlineacion(1, panelPortero, 1);
+		panelDelantero = crearAlineacion(numeroDelanteros, panelDelantero, 4, formacion);
+		panelMedio = crearAlineacion(numeroMedios, panelMedio, 3, formacion);
+		panelDefensa = crearAlineacion(numeroDefensas, panelDefensa, 2, formacion);
+		panelPortero = crearAlineacion(1, panelPortero, 1, formacion);
 		
 		
 		panelAlineacion.add(panelDelantero);
@@ -148,16 +158,17 @@ public class VentanaElegirPlantilla extends JFrame{
 	}
 	
 	//Metodo rellenar las lineas de la alineacion con las imagenes
-	public JPanel crearAlineacion (int nJugadoresPosicion, JPanel panelPosicion, int posicion) {
+	public JPanel crearAlineacion (int nJugadoresPosicion, JPanel panelPosicion, int posicion, String formacion) {
 		for (int i = 0; i < nJugadoresPosicion; i++) {
 			JLabel etiqueta = new JLabel("", SwingConstants.CENTER);
-			etiqueta.setBounds(0, 0, 70, 115);
+			etiqueta.setBounds(0, 0, 95, 155);
 			SetImageLabel(etiqueta, ruta);
 			etiqueta.addMouseListener(new MouseAdapter() {
 
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					ventSeleccion = new VentanaSeleccionJugadores(posicion, etiqueta);
+					if (posicion==1 & numMaxClickPor!=0 || posicion==2 & numMaxClickDef!=0 || posicion==3 & numMaxClickMed!=0 || posicion==4 & numMaxClickDel!=0)
+					ventSeleccion = new VentanaSeleccionJugadores(posicion, etiqueta, formacion);
 					VentanaPrincipal.logger.log(Level.FINE, "Se ha abierto la ventana de seleccion de jugador");
 					super.mouseClicked(e);					
 				}
@@ -171,7 +182,7 @@ public class VentanaElegirPlantilla extends JFrame{
 	//Metodo insertar la imagen en la etiqueta
 	public static void SetImageLabel (JLabel etiqueta, String ruta) {
 		ImageIcon image = new ImageIcon(ruta);
-		Icon icon = new ImageIcon(image.getImage().getScaledInstance(etiqueta.getWidth(), etiqueta.getHeight(), Image.SCALE_DEFAULT));
+		Icon icon = new ImageIcon(image.getImage().getScaledInstance(etiqueta.getWidth(), etiqueta.getHeight(), Image.SCALE_SMOOTH));
 		etiqueta.setIcon(icon);
 	}
 	
