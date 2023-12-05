@@ -17113,3 +17113,163 @@
   <message>Se ha terminado la partida</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-12-05T12:18:04.560269700Z</date>
+  <millis>1701778684560</millis>
+  <nanos>269700</nanos>
+  <sequence>0</sequence>
+  <logger>ventanas.VentanaPrincipal</logger>
+  <level>FINEST</level>
+  <class>ventanas.VentanaPrincipal</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Se ha iniciado la ventana principal</message>
+</record>
+<record>
+  <date>2023-12-05T12:18:07.829745200Z</date>
+  <millis>1701778687829</millis>
+  <nanos>745200</nanos>
+  <sequence>1</sequence>
+  <logger>ventanas.VentanaPrincipal</logger>
+  <level>FINE</level>
+  <class>ventanas.VentanaPrincipal$3</class>
+  <method>actionPerformed</method>
+  <thread>21</thread>
+  <message>Se ha pulsado boton inicio de sesion</message>
+</record>
+<record>
+  <date>2023-12-05T12:18:26.164846100Z</date>
+  <millis>1701778706164</millis>
+  <nanos>846100</nanos>
+  <sequence>2</sequence>
+  <logger>ventanas.VentanaPrincipal</logger>
+  <level>FINE</level>
+  <class>ventanas.VentanaPrincipal$2</class>
+  <method>actionPerformed</method>
+  <thread>21</thread>
+  <message>Se ha pulsado el boton jugar</message>
+</record>
+<record>
+  <date>2023-12-05T12:18:26.165918200Z</date>
+  <millis>1701778706165</millis>
+  <nanos>918200</nanos>
+  <sequence>3</sequence>
+  <logger>ventanas.VentanaPrincipal</logger>
+  <level>FINE</level>
+  <class>ventanas.VentanaPrincipal$2</class>
+  <method>actionPerformed</method>
+  <thread>21</thread>
+  <message>El inicio de sesion era correcto, se ha iniciado el juego</message>
+</record>
+<record>
+  <date>2023-12-05T12:18:26.240554900Z</date>
+  <millis>1701778706240</millis>
+  <nanos>554900</nanos>
+  <sequence>4</sequence>
+  <logger>ventanas.VentanaPrincipal</logger>
+  <level>FINEST</level>
+  <class>ventanas.VentanaFormacion</class>
+  <method>&lt;init&gt;</method>
+  <thread>21</thread>
+  <message>Se ha abierto la ventana formacion</message>
+</record>
+<record>
+  <date>2023-12-05T12:18:28.353927100Z</date>
+  <millis>1701778708353</millis>
+  <nanos>927100</nanos>
+  <sequence>5</sequence>
+  <logger>ventanas.VentanaPrincipal</logger>
+  <level>FINE</level>
+  <class>ventanas.VentanaFormacion$1</class>
+  <method>actionPerformed</method>
+  <thread>21</thread>
+  <message>Se ha elegido la primera formacion</message>
+</record>
+<record>
+  <date>2023-12-05T12:18:30.398786400Z</date>
+  <millis>1701778710398</millis>
+  <nanos>786400</nanos>
+  <sequence>6</sequence>
+  <logger>ventanas.VentanaPrincipal</logger>
+  <level>FINE</level>
+  <class>ventanas.VentanaElegirPlantilla$2</class>
+  <method>mouseClicked</method>
+  <thread>21</thread>
+  <message>Se ha abierto la ventana de seleccion de jugador</message>
+</record>
+<record>
+  <date>2023-12-05T12:18:32.138810500Z</date>
+  <millis>1701778712138</millis>
+  <nanos>810500</nanos>
+  <sequence>7</sequence>
+  <logger>ventanas.VentanaPrincipal</logger>
+  <level>FINE</level>
+  <class>ventanas.VentanaElegirPlantilla$2</class>
+  <method>mouseClicked</method>
+  <thread>21</thread>
+  <message>Se ha abierto la ventana de seleccion de jugador</message>
+</record>
+<record>
+  <date>2023-12-05T12:18:36.748647600Z</date>
+  <millis>1701778716748</millis>
+  <nanos>647600</nanos>
+  <sequence>8</sequence>
+  <logger>ventanas.VentanaPrincipal</logger>
+  <level>FINE</level>
+  <class>ventanas.VentanaElegirPlantilla$2</class>
+  <method>mouseClicked</method>
+  <thread>21</thread>
+  <message>Se ha abierto la ventana de seleccion de jugador</message>
+</record>
+<record>
+  <date>2023-12-05T12:18:39.593746800Z</date>
+  <millis>1701778719593</millis>
+  <nanos>746800</nanos>
+  <sequence>9</sequence>
+  <logger>ventanas.VentanaPrincipal</logger>
+  <level>FINE</level>
+  <class>ventanas.VentanaElegirPlantilla$2</class>
+  <method>mouseClicked</method>
+  <thread>21</thread>
+  <message>Se ha abierto la ventana de seleccion de jugador</message>
+</record>
+<record>
+  <date>2023-12-05T12:18:41.116183600Z</date>
+  <millis>1701778721116</millis>
+  <nanos>183600</nanos>
+  <sequence>10</sequence>
+  <logger>ventanas.VentanaPrincipal</logger>
+  <level>FINE</level>
+  <class>ventanas.VentanaElegirPlantilla$2</class>
+  <method>mouseClicked</method>
+  <thread>21</thread>
+  <message>Se ha abierto la ventana de seleccion de jugador</message>
+</record>
+<record>
+  <date>2023-12-05T12:18:42.724882300Z</date>
+  <millis>1701778722724</millis>
+  <nanos>882300</nanos>
+  <sequence>11</sequence>
+  <logger>ventanas.VentanaPrincipal</logger>
+  <level>FINE</level>
+  <class>ventanas.VentanaElegirPlantilla$2</class>
+  <method>mouseClicked</method>
+  <thread>21</thread>
+  <message>Se ha abierto la ventana de seleccion de jugador</message>
+</record>
+<record>
+  <date>2023-12-05T12:19:02.161361500Z</date>
+  <millis>1701778742161</millis>
+  <nanos>361500</nanos>
+  <sequence>12</sequence>
+  <logger>ventanas.VentanaPrincipal</logger>
+  <level>FINE</level>
+  <class>ventanas.VentanaElegirPlantilla$1</class>
+  <method>windowClosed</method>
+  <thread>21</thread>
+  <message>Se ha terminado la partida</message>
+</record>
+</log>
