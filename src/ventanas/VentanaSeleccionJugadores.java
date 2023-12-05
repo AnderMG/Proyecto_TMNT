@@ -63,7 +63,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 				
 				JLabel etiqueta = new JLabel();
 				etiqueta.setBounds(0, 0, 325, 390);
-				VentanaElegirPlantilla.SetImageLabel(etiqueta, "src/imagenes/Porteros/" + nombre +".jpg");
+				VentanaElegirPlantilla.SetImageLabel(etiqueta, "src/imagenes/Porteros/" + nombre +".png");
 				etiqueta.repaint();
 				
 				etiqueta.addMouseListener(new MouseAdapter() {
@@ -71,7 +71,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 					@Override
 					public void mouseClicked(MouseEvent e) {
 						plantilla.add(LeerJugadorCampo.listaPorterosTotales.get(portero.getID()-1));
-						VentanaElegirPlantilla.SetImageLabel(carta, "src/imagenes/Porteros/" + nombre +".jpg");
+						VentanaElegirPlantilla.SetImageLabel(carta, "src/imagenes/Porteros/" + nombre +".png");
 						VentanaElegirPlantilla.numMaxClickPor = 0;
 						if(plantilla.size() == 6) {
 							VentanaElegirPlantilla.plantillaCompleta = true;
@@ -99,7 +99,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 								
 				JLabel etiqueta = new JLabel();
 				etiqueta.setBounds(0, 0, 325, 390);
-				VentanaElegirPlantilla.SetImageLabel(etiqueta, "src/imagenes/Defensas/" + nombre +".jpg");
+				VentanaElegirPlantilla.SetImageLabel(etiqueta, "src/imagenes/Defensas/" + nombre +".png");
 				etiqueta.repaint();
 				
 				etiqueta.addMouseListener(new MouseAdapter() {
@@ -107,7 +107,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 					@Override
 					public void mouseClicked(MouseEvent e) {
 						plantilla.add(LeerJugadorCampo.listaDefensasTotales.get(defensa.getID()-13));
-						VentanaElegirPlantilla.SetImageLabel(carta, "src/imagenes/Defensas/" + nombre +".jpg");
+						VentanaElegirPlantilla.SetImageLabel(carta, "src/imagenes/Defensas/" + nombre +".png");
 						VentanaElegirPlantilla.numMaxClickDef -=1;
 						if(plantilla.size() == 6) {
 							VentanaElegirPlantilla.plantillaCompleta = true;
@@ -136,7 +136,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 				
 				JLabel etiqueta = new JLabel();
 				etiqueta.setBounds(0, 0, 325, 390);
-				VentanaElegirPlantilla.SetImageLabel(etiqueta, "src/imagenes/Mediocentros/" + nombre +".jpg");
+				VentanaElegirPlantilla.SetImageLabel(etiqueta, "src/imagenes/Mediocentros/" + nombre +".png");
 				etiqueta.repaint();
 				
 				etiqueta.addMouseListener(new MouseAdapter() {
@@ -144,7 +144,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 					@Override
 					public void mouseClicked(MouseEvent e) {
 						plantilla.add(LeerJugadorCampo.listaMediocentrosTotales.get(medio.getID()-38));
-						VentanaElegirPlantilla.SetImageLabel(carta, "src/imagenes/Mediocentros/" + nombre +".jpg");
+						VentanaElegirPlantilla.SetImageLabel(carta, "src/imagenes/Mediocentros/" + nombre +".png");
 						VentanaElegirPlantilla.numMaxClickMed -=1;
 						if(plantilla.size() == 6) {
 							VentanaElegirPlantilla.plantillaCompleta = true;
@@ -172,7 +172,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 				
 				JLabel etiqueta = new JLabel();
 				etiqueta.setBounds(0, 0, 325, 390);
-				VentanaElegirPlantilla.SetImageLabel(etiqueta, "src/imagenes/Delanteros/" + nombre +".jpg");
+				VentanaElegirPlantilla.SetImageLabel(etiqueta, "src/imagenes/Delanteros/" + nombre +".png");
 				etiqueta.repaint();
 				
 				etiqueta.addMouseListener(new MouseAdapter() {
@@ -180,7 +180,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 					@Override
 					public void mouseClicked(MouseEvent e) {
 						plantilla.add(LeerJugadorCampo.listaDelanterosTotales.get(delantero.getID()-(62)));
-						VentanaElegirPlantilla.SetImageLabel(carta, "src/imagenes/Delanteros/" + nombre +".jpg");
+						VentanaElegirPlantilla.SetImageLabel(carta, "src/imagenes/Delanteros/" + nombre +".png");
 						VentanaElegirPlantilla.numMaxClickDel -=1;
 						if(plantilla.size() == 6) {
 							VentanaElegirPlantilla.plantillaCompleta = true;
