@@ -31,8 +31,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 	public VentanaSeleccionJugadores(int posicion, JLabel carta, String formacion) {
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setSize(1000, 400);
-		JPanel panel = new JPanel(new GridLayout(1, 3, 12, 0));	
-		panel.setBackground(Color.green);
+		JPanel panel = new JPanel(new GridLayout(1, 3, 0, 0));	
 
 		
 		if (listaPorteros.isEmpty()) {
@@ -56,11 +55,9 @@ public class VentanaSeleccionJugadores extends JFrame {
 		case 1:
 			setTitle("Seleccion de porteros");
 			for (int i = 0; i < 3; i++) {
-				double nrandom = Math.random();
-				if (nrandom < (0.09)) {
-					nrandom += (0.09);
-				}
-				Portero portero = listaPorteros.get((int) Math.floor((nrandom*listaPorteros.size())));
+				Random random = new Random();
+				int r = random.nextInt(listaPorteros.size());
+				Portero portero = listaPorteros.get(r);
 				String nombre = portero.getNombre();
 				
 				JLabel etiqueta = new JLabel();
@@ -79,6 +76,8 @@ public class VentanaSeleccionJugadores extends JFrame {
 							VentanaElegirPlantilla.plantillaCompleta = true;
 							VentanaElegirPlantilla.barraValoracion.setValue(Quimica.calcularValoracionFormacion(plantilla.get(0), plantilla.get(1), plantilla.get(2), plantilla.get(3), plantilla.get(4), plantilla.get(5)));
 							VentanaElegirPlantilla.barraQumica.setValue(Quimica.calcularQuimicaFormacion(formacion, plantilla.get(0), plantilla.get(1), plantilla.get(2), plantilla.get(3), plantilla.get(4), plantilla.get(5)));
+							VentanaElegirPlantilla.etiquetaValoracion.setText("Valoracion: " + VentanaElegirPlantilla.barraValoracion.getValue());
+							VentanaElegirPlantilla.etiquetaQuimica.setText("Quimica: " + VentanaElegirPlantilla.barraQumica.getValue());
 						}
 						VentanaSeleccionJugadores.this.dispose();
 						super.mouseClicked(e);
@@ -92,11 +91,9 @@ public class VentanaSeleccionJugadores extends JFrame {
 		case 2:
 			setTitle("Seleccion de defensas");
 			for (int i = 0; i < 3; i++) {
-				double nrandom = Math.random();
-				if (nrandom < (0.05)) {
-					nrandom += (0.05);
-				}
-				JugaCampo defensa = listaDefensas.get((int) Math.floor((nrandom*listaDefensas.size())-1));	
+				Random random = new Random();
+				int r = random.nextInt(listaDefensas.size());
+				JugaCampo defensa = listaDefensas.get(r);	
 				String nombre = defensa.getNombre();
 								
 				JLabel etiqueta = new JLabel();
@@ -115,6 +112,8 @@ public class VentanaSeleccionJugadores extends JFrame {
 							VentanaElegirPlantilla.plantillaCompleta = true;
 							VentanaElegirPlantilla.barraValoracion.setValue(Quimica.calcularValoracionFormacion(plantilla.get(0), plantilla.get(1), plantilla.get(2), plantilla.get(3), plantilla.get(4), plantilla.get(5)));
 							VentanaElegirPlantilla.barraQumica.setValue(Quimica.calcularQuimicaFormacion(formacion, plantilla.get(0), plantilla.get(1), plantilla.get(2), plantilla.get(3), plantilla.get(4), plantilla.get(5)));
+							VentanaElegirPlantilla.etiquetaValoracion.setText("Valoracion: " + VentanaElegirPlantilla.barraValoracion.getValue());
+							VentanaElegirPlantilla.etiquetaQuimica.setText("Quimica: " + VentanaElegirPlantilla.barraQumica.getValue());
 						}
 						VentanaSeleccionJugadores.this.dispose();
 						super.mouseClicked(e);
@@ -129,11 +128,9 @@ public class VentanaSeleccionJugadores extends JFrame {
 		case 3:
 			setTitle("Seleccion de medios");
 			for (int i = 0; i < 3; i++) {
-				double nrandom = Math.random();
-				if (nrandom < (0.05)) {
-					nrandom += (0.05);
-				}
-				JugaCampo medio = listaMediocentros.get((int) Math.floor((nrandom*listaMediocentros.size())-1));
+				Random random = new Random();
+				int r = random.nextInt(listaMediocentros.size());
+				JugaCampo medio = listaMediocentros.get(r);
 				String nombre = medio.getNombre();
 				
 				JLabel etiqueta = new JLabel();
@@ -145,13 +142,15 @@ public class VentanaSeleccionJugadores extends JFrame {
 
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						plantilla.add(LeerJugadorCampo.listaMediocentrosTotales.get(medio.getID()-38));
+						plantilla.add(LeerJugadorCampo.listaMediocentrosTotales.get(medio.getID()-37));
 						VentanaElegirPlantilla.SetImageLabel(carta, "src/imagenes/Mediocentros/" + nombre +".png");
 						VentanaElegirPlantilla.numMaxClickMed -=1;
 						if(plantilla.size() == 6) {
 							VentanaElegirPlantilla.plantillaCompleta = true;
 							VentanaElegirPlantilla.barraValoracion.setValue(Quimica.calcularValoracionFormacion(plantilla.get(0), plantilla.get(1), plantilla.get(2), plantilla.get(3), plantilla.get(4), plantilla.get(5)));
 							VentanaElegirPlantilla.barraQumica.setValue(Quimica.calcularQuimicaFormacion(formacion, plantilla.get(0), plantilla.get(1), plantilla.get(2), plantilla.get(3), plantilla.get(4), plantilla.get(5)));
+							VentanaElegirPlantilla.etiquetaValoracion.setText("Valoracion: " + VentanaElegirPlantilla.barraValoracion.getValue());
+							VentanaElegirPlantilla.etiquetaQuimica.setText("Quimica: " + VentanaElegirPlantilla.barraQumica.getValue());
 						}
 						VentanaSeleccionJugadores.this.dispose();
 						super.mouseClicked(e);
@@ -165,11 +164,9 @@ public class VentanaSeleccionJugadores extends JFrame {
 		case 4:
 			setTitle("Seleccion de delanteros");
 			for (int i = 0; i < 3; i++) {
-				double nrandom = Math.random();
-				if (nrandom < (0.05)) {
-					nrandom += (0.05);
-				}
-				JugaCampo delantero = listaDelanteros.get((int) Math.floor((nrandom*listaDelanteros.size())-1));
+				Random random = new Random();
+				int r = random.nextInt(listaDelanteros.size());
+				JugaCampo delantero = listaDelanteros.get(r);
 				String nombre = delantero.getNombre();
 				
 				JLabel etiqueta = new JLabel();
@@ -181,13 +178,15 @@ public class VentanaSeleccionJugadores extends JFrame {
 
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						plantilla.add(LeerJugadorCampo.listaDelanterosTotales.get(delantero.getID()-(62)));
+						plantilla.add(LeerJugadorCampo.listaDelanterosTotales.get(delantero.getID()-(61)));
 						VentanaElegirPlantilla.SetImageLabel(carta, "src/imagenes/Delanteros/" + nombre +".png");
 						VentanaElegirPlantilla.numMaxClickDel -=1;
 						if(plantilla.size() == 6) {
 							VentanaElegirPlantilla.plantillaCompleta = true;
 							VentanaElegirPlantilla.barraValoracion.setValue(Quimica.calcularValoracionFormacion(plantilla.get(0), plantilla.get(1), plantilla.get(2), plantilla.get(3), plantilla.get(4), plantilla.get(5)));
 							VentanaElegirPlantilla.barraQumica.setValue(Quimica.calcularQuimicaFormacion(formacion, plantilla.get(0), plantilla.get(1), plantilla.get(2), plantilla.get(3), plantilla.get(4), plantilla.get(5)));
+							VentanaElegirPlantilla.etiquetaValoracion.setText("Valoracion: " + VentanaElegirPlantilla.barraValoracion.getValue());
+							VentanaElegirPlantilla.etiquetaQuimica.setText("Quimica: " + VentanaElegirPlantilla.barraQumica.getValue());
 						}
 						VentanaSeleccionJugadores.this.dispose();
 						super.mouseClicked(e);

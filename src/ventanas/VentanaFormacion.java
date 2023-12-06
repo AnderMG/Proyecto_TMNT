@@ -46,6 +46,7 @@ public class VentanaFormacion extends JFrame{
 		JLabel etiquetaIndicacion = new JLabel("Elige una de las siguientes formaciones", SwingConstants.CENTER);
 		etiquetaIndicacion.setBounds(0, -4, 400, 50);
 		etiquetaIndicacion.setForeground(Color.BLACK);
+		etiquetaIndicacion.setFont(new Font("Yu Gothic UI Semibold", 20, 20));
 		
 		//Añadimos las formaciones
 		formaciones.add("3-1-1");
@@ -57,11 +58,15 @@ public class VentanaFormacion extends JFrame{
 		
 		
 		//Quitamos 2 formaciones de manera aleatoria y creamos 3 botones con las restantes
+		Random random = new Random();
+		
 		for (int i = 0; i < 2; i++) {
-			int p = (int)(Math.floor(Math.random()*(5-i)));
+			int p = random.nextInt(5-i);
+			System.out.println(p);
 			formaciones.remove(p);
 		}
 		JButton btnFor1 = new JButton(formaciones.get(0));
+		btnFor1.setFont(new Font("Yu Gothic UI Semibold", Font.ITALIC, 14));
 		btnFor1.addActionListener(new ActionListener() {
 			
 			@Override
@@ -73,6 +78,7 @@ public class VentanaFormacion extends JFrame{
 		});
 		
 		JButton btnFor2 = new JButton(formaciones.get(1));
+		btnFor2.setFont(new Font("Yu Gothic UI Semibold", Font.ITALIC, 14));
 		btnFor2.addActionListener(new ActionListener() {
 			
 			@Override
@@ -84,6 +90,7 @@ public class VentanaFormacion extends JFrame{
 		});
 		
 		JButton btnFor3 = new JButton(formaciones.get(2));
+		btnFor3.setFont(new Font("Yu Gothic UI Semibold", Font.ITALIC, 14));
 		btnFor3.addActionListener(new ActionListener() {
 			
 			@Override

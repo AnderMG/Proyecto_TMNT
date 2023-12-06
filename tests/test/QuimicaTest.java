@@ -20,11 +20,12 @@ import utils.Quimica;
 
 public class QuimicaTest {
 	
-	static JugaCampo jugador1 = new JugaCampo(1, "Zinedine", "Zidane", Posicion.MEDIOCENTRO, Elemento.BOSQUE, null, null, Temporada.TEMPORADA2, 0, null, false, 0);
-	static JugaCampo jugador2 = new JugaCampo(2, "Lionel", "Messi", Posicion.DELANTERO, Elemento.AIRE, null, null, Temporada.TEMPORADA3, 0, null, false, 0);
-	static JugaCampo jugador3 = new JugaCampo(3, "Cristiano", "Ronaldo", Posicion.DELANTERO, Elemento.FUEGO, null, null, Temporada.TEMPORADA3, 0, null, false, 0);
-	static JugaCampo jugador4 = new JugaCampo(4, "Vinicius", "Junior", Posicion.DELANTERO, Elemento.FUEGO, null, null, Temporada.TEMPORADA4, 0, null, false, 0);
-	static JugaCampo jugador5 = new JugaCampo(4, "Ferran", "Torres", Posicion.DELANTERO, Elemento.FUEGO, null, null, Temporada.TEMPORADA4, 0, null, false, 0);
+	static JugaCampo jugador1 = new JugaCampo(1, "Zinedine", "Zidane", Posicion.MEDIOCENTRO, Elemento.BOSQUE, null, null, Temporada.TEMPORADA2, 91, null, false, 0);
+	static JugaCampo jugador2 = new JugaCampo(2, "Lionel", "Messi", Posicion.DELANTERO, Elemento.AIRE, null, null, Temporada.TEMPORADA3, 94, null, false, 0);
+	static JugaCampo jugador3 = new JugaCampo(3, "Cristiano", "Ronaldo", Posicion.DELANTERO, Elemento.FUEGO, null, null, Temporada.TEMPORADA3, 93, null, false, 0);
+	static JugaCampo jugador4 = new JugaCampo(4, "Vinicius", "Junior", Posicion.DELANTERO, Elemento.FUEGO, null, null, Temporada.TEMPORADA4, 88, null, false, 0);
+	static JugaCampo jugador5 = new JugaCampo(4, "Ferran", "Torres", Posicion.DELANTERO, Elemento.FUEGO, null, null, Temporada.TEMPORADA4, 99, null, false, 0);
+	static JugaCampo jugador6 = new JugaCampo(4, "Erling", "Haaland", Posicion.DELANTERO, Elemento.MONTANIA, null, null, Temporada.TEMPORADA5, 90, null, false, 0);
 	
 	@Before
 	public void setUp() throws Exception {
@@ -62,12 +63,18 @@ public class QuimicaTest {
 	@Test
 	public void testQuimica2() {
 		assertEquals(esperado, obtenido);
-		System.out.println(obtenido1);
-		System.out.println(obtenido2);
-		System.out.println(obtenido3);
 	}
 	
+	@Test
+	public void testQuimicaFormacion() {
+		assertEquals(40, Quimica.calcularQuimicaFormacion("1-3-1", jugador1, jugador2, jugador3, jugador4, jugador5, jugador6));
+		assertEquals(20, Quimica.calcularQuimicaFormacion("3-1-1", jugador1, jugador2, jugador3, jugador4, jugador5, jugador6));
+	}
 	
+	@Test
+	public void testValoracion() {
+		assertEquals(92, Quimica.calcularValoracionFormacion(jugador1, jugador2, jugador3, jugador4, jugador5, jugador6));
+	}
 	
 }
 	

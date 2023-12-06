@@ -1,12 +1,11 @@
 package ventanas;
 
 import java.awt.BorderLayout;
+
+
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
@@ -26,7 +25,6 @@ import javax.swing.SwingConstants;
 
 import utils.FondoEnVentana;
 import utils.HiloTiempoEnJuego;
-import utils.Quimica;
 
 public class VentanaElegirPlantilla extends JFrame{
 	JPanel panelAlineacion = new JPanel();
@@ -45,6 +43,8 @@ public class VentanaElegirPlantilla extends JFrame{
 	protected static int numMaxClickMed;
 	protected static int numMaxClickDel;
 	public static JLabel etiquetaContador = new JLabel();
+	public static JLabel etiquetaValoracion = new JLabel();
+	public static JLabel etiquetaQuimica = new JLabel();
 	String ruta = "src/imagenes/DefaultCardPeque.png";
 	VentanaSeleccionJugadores ventSeleccion;
 
@@ -55,6 +55,8 @@ public class VentanaElegirPlantilla extends JFrame{
 		setLocationRelativeTo( null );
 		setResizable(false);
 		
+		etiquetaContador.setFont(new Font(Font.DIALOG_INPUT, 13, 13));
+		etiquetaContador.setHorizontalAlignment(SwingConstants.CENTER);
 		HiloTiempoEnJuego hiloDuracion = new HiloTiempoEnJuego();
 
 		int numeroDefensas = Integer.parseInt(formacion.substring(0, 1));
@@ -68,6 +70,7 @@ public class VentanaElegirPlantilla extends JFrame{
 		
 		panelAlineacion.setLayout(new BoxLayout(panelAlineacion, BoxLayout.Y_AXIS));
 		
+		//implementacion de los paneles de posicion//
 		panelDelantero.setLayout(new FlowLayout(FlowLayout.CENTER, 600/numeroDelanteros, 0));
 		panelMedio.setLayout(new FlowLayout(FlowLayout.CENTER, 600/numeroMedios, 0));
 		panelDefensa.setLayout(new FlowLayout(FlowLayout.CENTER, 600/numeroDefensas, 0));
@@ -77,28 +80,36 @@ public class VentanaElegirPlantilla extends JFrame{
 		panelDefensa = crearAlineacion(numeroDefensas, panelDefensa, 2, formacion);
 		panelPortero = crearAlineacion(1, panelPortero, 1, formacion);
 		
-		
+		//añadir los paneles de las posiciones al panel general//
 		panelAlineacion.add(panelDelantero);
 		panelAlineacion.add(panelMedio);
 		panelAlineacion.add(panelDefensa);
 		panelAlineacion.add(panelPortero);
 		
 		
-		
+		//Panel de las barras de quimica y valoracion
 		panelQuimiValo.setLayout(new GridLayout(2, 1));
 		panelQuimiValo.setForeground(Color.white);
-//		panelQuimiValo.add(new JLabel("Valoracion: ", SwingConstants.RIGHT));
 		panelQuimiValo.add(barraValoracion);
-//		panelQuimiValo.add(new JLabel("Quimica: ", SwingConstants.RIGHT));
 		panelQuimiValo.add(barraQumica);
 		
+		//Configurar etiqeutas de valoracion y qumica//
+		etiquetaValoracion.setText("Valoracion: __");
+		etiquetaQuimica.setText("Quimica: __");
+		etiquetaValoracion.setHorizontalAlignment(SwingConstants.RIGHT);
+		etiquetaQuimica.setHorizontalAlignment(SwingConstants.RIGHT);
+		etiquetaValoracion.setFont(new Font(Font.DIALOG, 0, 12));
+		etiquetaQuimica.setFont(new Font(Font.DIALOG, 0, 12));
 		
+		//panel del contador y boton de terminar//
 		panelContadorTerminar.setLayout(new GridLayout(2, 2));
 		panelContadorTerminar.add(etiquetaContador);
-		panelContadorTerminar.add(new JLabel("Valoracion: ", SwingConstants.RIGHT));
+		panelContadorTerminar.add(etiquetaValoracion);
 		panelContadorTerminar.add(new JLabel());
-		panelContadorTerminar.add(new JLabel("Quimica: ", SwingConstants.RIGHT));
+		panelContadorTerminar.add(etiquetaQuimica);
 		
+		
+		//Panel de cabecera//
 		panelCabecera.setLayout(new GridLayout(1, 2));
 		panelCabecera.add(panelContadorTerminar);
 		panelCabecera.add(panelQuimiValo);
