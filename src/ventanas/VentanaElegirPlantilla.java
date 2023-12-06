@@ -31,6 +31,8 @@ import utils.Quimica;
 public class VentanaElegirPlantilla extends JFrame{
 	JPanel panelAlineacion = new JPanel();
 	JPanel panelQuimiValo = new JPanel();
+	JPanel panelContadorTerminar = new JPanel();
+	JPanel panelCabecera = new JPanel();
 	JPanel panelPortero = FondoEnVentana.panelConFondo("terrenoPor.png");
 	JPanel panelDefensa = FondoEnVentana.panelConFondo("terrenoDef.png");
 	JPanel panelMedio = FondoEnVentana.panelConFondo("terrenoMed.png");
@@ -42,8 +44,7 @@ public class VentanaElegirPlantilla extends JFrame{
 	protected static int numMaxClickDef;
 	protected static int numMaxClickMed;
 	protected static int numMaxClickDel;
-//	int contador = 0;
-//	Thread hiloTiempoPartida;
+	public static JLabel etiquetaContador = new JLabel();
 	String ruta = "src/imagenes/DefaultCardPeque.png";
 	VentanaSeleccionJugadores ventSeleccion;
 
@@ -55,7 +56,7 @@ public class VentanaElegirPlantilla extends JFrame{
 		setResizable(false);
 		
 		HiloTiempoEnJuego hiloDuracion = new HiloTiempoEnJuego();
-		
+
 		int numeroDefensas = Integer.parseInt(formacion.substring(0, 1));
 		int numeroMedios = Integer.parseInt(formacion.substring(2, 3));
 		int numeroDelanteros = Integer.parseInt(formacion.substring(4, 5));
@@ -83,35 +84,24 @@ public class VentanaElegirPlantilla extends JFrame{
 		panelAlineacion.add(panelPortero);
 		
 		
-//		JLabel segundos = new JLabel("segundos: " + contador);
-//		
-//		hiloTiempoPartida = new Thread(new Runnable() {
-//			
-//			@Override
-//			public void run() {
-//				while(!hiloTiempoPartida.isInterrupted()) {
-//					try {
-//						segundos.setText("segundos: " + contador);
-//						Thread.sleep(1000);
-//						contador++;
-//					}catch (Exception e) {
-//					}
-//					
-//				}
-//				
-//				
-//			}
-//		});
 		
-		panelQuimiValo.setLayout(new GridLayout(2, 2));
-//		panelQuimiValo.add(new JLabel("Temporizacion partida", SwingConstants.CENTER));
+		panelQuimiValo.setLayout(new GridLayout(2, 1));
 		panelQuimiValo.setForeground(Color.white);
-		panelQuimiValo.add(new JLabel("Valoracion: ", SwingConstants.RIGHT));
+//		panelQuimiValo.add(new JLabel("Valoracion: ", SwingConstants.RIGHT));
 		panelQuimiValo.add(barraValoracion);
-//		panelQuimiValo.add(segundos);
-		panelQuimiValo.add(new JLabel("Quimica: ", SwingConstants.RIGHT));
+//		panelQuimiValo.add(new JLabel("Quimica: ", SwingConstants.RIGHT));
 		panelQuimiValo.add(barraQumica);
 		
+		
+		panelContadorTerminar.setLayout(new GridLayout(2, 2));
+		panelContadorTerminar.add(etiquetaContador);
+		panelContadorTerminar.add(new JLabel("Valoracion: ", SwingConstants.RIGHT));
+		panelContadorTerminar.add(new JLabel());
+		panelContadorTerminar.add(new JLabel("Quimica: ", SwingConstants.RIGHT));
+		
+		panelCabecera.setLayout(new GridLayout(1, 2));
+		panelCabecera.add(panelContadorTerminar);
+		panelCabecera.add(panelQuimiValo);
 		
 		addWindowListener(new WindowAdapter() {
 
@@ -127,31 +117,10 @@ public class VentanaElegirPlantilla extends JFrame{
 			}
 			
 		});
-		add(panelQuimiValo, BorderLayout.NORTH);
+		add(panelCabecera, BorderLayout.NORTH);
 		add(panelAlineacion, BorderLayout.CENTER);
 		
 		
-//		addWindowListener(new WindowAdapter() {
-//
-//			@Override
-//			public void windowStateChanged(WindowEvent e) {
-//				for (Component c: panelPortero.getComponents()) {
-//					c.resize((VentanaElegirPlantilla.this.size().width/14), (VentanaElegirPlantilla.this.size().height/7));
-//				}
-//				for (Component c: panelDefensa.getComponents()) {
-//					c.resize((VentanaElegirPlantilla.this.size().width/14), (VentanaElegirPlantilla.this.size().height/7));
-//				}
-//				for (Component c: panelMedio.getComponents()) {
-//					c.resize((VentanaElegirPlantilla.this.size().width/14), (VentanaElegirPlantilla.this.size().height/7));
-//				}
-//				for (Component c: panelDelantero.getComponents()) {
-//					c.resize((VentanaElegirPlantilla.this.size().width/14), (VentanaElegirPlantilla.this.size().height/7));
-//				}
-//				super.windowStateChanged(e);
-//			}
-//			
-//			
-//		});
 		
 		setVisible(true);
 		hiloDuracion.start();
@@ -161,7 +130,7 @@ public class VentanaElegirPlantilla extends JFrame{
 	public JPanel crearAlineacion (int nJugadoresPosicion, JPanel panelPosicion, int posicion, String formacion) {
 		for (int i = 0; i < nJugadoresPosicion; i++) {
 			JLabel etiqueta = new JLabel("", SwingConstants.CENTER);
-			etiqueta.setBounds(0, 0, 95, 155);
+			etiqueta.setBounds(0, 0, 120, 160);
 			SetImageLabel(etiqueta, ruta);
 			etiqueta.addMouseListener(new MouseAdapter() {
 

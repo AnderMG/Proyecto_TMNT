@@ -1,5 +1,6 @@
 package ventanas;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
@@ -31,6 +32,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setSize(1000, 400);
 		JPanel panel = new JPanel(new GridLayout(1, 3, 12, 0));	
+		panel.setBackground(Color.green);
 
 		
 		if (listaPorteros.isEmpty()) {
@@ -58,7 +60,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 				if (nrandom < (0.09)) {
 					nrandom += (0.09);
 				}
-				Portero portero = listaPorteros.get((int) Math.floor((nrandom*listaPorteros.size())-1));
+				Portero portero = listaPorteros.get((int) Math.floor((nrandom*listaPorteros.size())));
 				String nombre = portero.getNombre();
 				
 				JLabel etiqueta = new JLabel();
