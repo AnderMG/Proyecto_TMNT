@@ -87,7 +87,29 @@ public class VentanaJugadores extends JFrame{
 			{"Ryoma", "Nishiki", 4, "Medio", "Montañia", 86},
 			{"Sol", "Daystar", 4, "Medio", "Fuego", 93},
 			{"Victoria", "Vanguard", 2, "Medio", "Aire", 83},
-			{"Axel", "Blaze", 1, "Delantero", "Fuego", 93}
+			{"Axel", "Blaze", 1, "Delantero", "Fuego", 93},
+			{"Austin", "Hobbes", 3, "Delantero", "Bosque", 91},
+			{"Bailong", null, 4, "Delantero", "Aire", 93},
+			{"Bala", null, 6, "Delantero", "Fuego", 90},
+			{"Beta", null, 5, "Delantero", "Aire", 89},
+			{"Bryce", "Withingale", 2, "Delantero", "Aire", 91},
+			{"Clario", "Orvan", 1, "Delantero", "Montañia", 92},
+			{"Claude", "Beacons", 2, "Delantero", "Fuego", 91},
+			{"Destra", null, 3, "Delantero", "Montañia", 90},
+			{"Falco", "Flashman", 6, "Delantero", "Aire", 90},
+			{"Gamma", null, 5, "Delantero", "Bosque", 89},
+			{"Gandares", null, 6, "Delantero", "Bosque", 90},
+			{"Haizaki", "Ryouhei", 1, "Delantero", "Bosque", 91},
+			{"Kevin", "Dragonfly", 1, "Delantero", "Bosque", 88},
+			{"Maxwell", "Carson", 1, "Delantero", "Aire", 81},
+			{"Rex", "Regmington", 4, "Delantero", "Montañia", 86},
+			{"Swan", "Froste", 2, "Delantero", "Aire", 93},
+			{"Simeon", "Ayp", 5, "Delantero", "Montañia", 92},
+			{"Tezcat", null, 4, "Delantero", "Bosque", 92},
+			{"Victor", "Blade", 4, "Delantero", "Fuego", 93},
+			{"Wolfram", "Vulpeen", 5, "Delantero", "Fuego", 90},
+			{"Xene", null, 2, "Delantero", "Fuego", 92},
+			{"Zanark", "Avalonic", 5, "Delantero", "Montañia", 93}
 			
 	};
 	
