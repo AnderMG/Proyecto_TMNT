@@ -56,12 +56,14 @@ public class VentanaPrincipal {
 		
 		//Botones de salida
 		JButton btnSalir = new JButton();
-		btnSalir.setText("Salir");
+		btnSalir.setText("Jugadores");
 		btnSalir.setOpaque(false);
 		btnSalir.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				logger.log(Level.FINE, "Se ha pulsado el boton jugadores");
+				new VentanaJugadores();
 				ventanaPrincipal.dispose();
 			}
 		});
