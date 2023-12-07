@@ -62,7 +62,6 @@ public class VentanaFormacion extends JFrame{
 		
 		for (int i = 0; i < 2; i++) {
 			int p = random.nextInt(5-i);
-			System.out.println(p);
 			formaciones.remove(p);
 		}
 		JButton btnFor1 = new JButton(formaciones.get(0));

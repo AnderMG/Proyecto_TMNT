@@ -8,6 +8,8 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
@@ -17,6 +19,7 @@ import java.util.logging.Level;
 import javax.swing.BoxLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -35,6 +38,7 @@ public class VentanaElegirPlantilla extends JFrame{
 	JPanel panelDefensa = FondoEnVentana.panelConFondo("terrenoDef.png");
 	JPanel panelMedio = FondoEnVentana.panelConFondo("terrenoMed.png");
 	JPanel panelDelantero = FondoEnVentana.panelConFondo("terrenoDel.png");
+	JButton botonTerminar = new JButton();
 	protected static JProgressBar barraQumica = new JProgressBar(0, 100);
 	protected static JProgressBar barraValoracion = new JProgressBar(0, 100);
 	protected static boolean plantillaCompleta = false;
@@ -55,10 +59,12 @@ public class VentanaElegirPlantilla extends JFrame{
 		setLocationRelativeTo( null );
 		setResizable(false);
 		
-		etiquetaContador.setFont(new Font(Font.DIALOG_INPUT, 13, 13));
+		//Inicializar la etiqueta y el hilo contador
+		etiquetaContador.setFont(new Font(Font.DIALOG_INPUT, 13, 12));
 		etiquetaContador.setHorizontalAlignment(SwingConstants.CENTER);
 		HiloTiempoEnJuego hiloDuracion = new HiloTiempoEnJuego();
 
+		//sacar el numero de jugadores por posicion
 		int numeroDefensas = Integer.parseInt(formacion.substring(0, 1));
 		int numeroMedios = Integer.parseInt(formacion.substring(2, 3));
 		int numeroDelanteros = Integer.parseInt(formacion.substring(4, 5));
@@ -101,11 +107,26 @@ public class VentanaElegirPlantilla extends JFrame{
 		etiquetaValoracion.setFont(new Font(Font.DIALOG, 0, 12));
 		etiquetaQuimica.setFont(new Font(Font.DIALOG, 0, 12));
 		
+		
+		//configuracion boton de terminar//
+		botonTerminar.setText("Finalizar");
+		botonTerminar.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 10));
+		botonTerminar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (VentanaSeleccionJugadores.plantilla.size() == 6) {
+					hiloDuracion.interrupt();
+				}
+							
+			}
+		});
+		
 		//panel del contador y boton de terminar//
 		panelContadorTerminar.setLayout(new GridLayout(2, 2));
 		panelContadorTerminar.add(etiquetaContador);
 		panelContadorTerminar.add(etiquetaValoracion);
-		panelContadorTerminar.add(new JLabel());
+		panelContadorTerminar.add(botonTerminar);
 		panelContadorTerminar.add(etiquetaQuimica);
 		
 		
