@@ -1,6 +1,7 @@
 package ventanas;
 
 import java.awt.Color;
+
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
@@ -33,21 +34,38 @@ public class VentanaSeleccionJugadores extends JFrame {
 		setSize(1000, 400);
 		JPanel panel = new JPanel(new GridLayout(1, 3, 0, 0));	
 
-		
+		//Nos aseguramos de que las listas tengan el tamaño/contenido adecuado//
 		if (listaPorteros.isEmpty()) {
 			listaPorteros = LeerJugadorCampo.leerPorteros("Porteros.txt");
+			if (listaPorteros.size() > 12) {
+				for (int i = listaPorteros.size()-1; i>11; i--) {
+					listaPorteros.remove(i);
+				}
+			}
 		}
 		if (listaDefensas.isEmpty()) {
 			listaDefensas = LeerJugadorCampo.leerJugaDefensas("Defensas.txt");
-
+			if (listaDefensas.size() > 24) {
+				for (int i = listaDefensas.size()-1; i>23; i--) {
+					listaDefensas.remove(i);
+				}
+			}
 		}
 		if (listaMediocentros.isEmpty()) {
 			listaMediocentros = LeerJugadorCampo.leerJugaMediocentros("Mediocentros.txt");
-
+			if (listaMediocentros.size() > 24) {
+				for (int i = listaMediocentros.size()-1; i>23; i--) {
+					listaMediocentros.remove(i);
+				}
+			}
 		}
 		if (listaDelanteros.isEmpty()) {
 			listaDelanteros = LeerJugadorCampo.leerJugaDelanteros("Delanteros.txt");
-
+			if (listaDelanteros.size() > 23) {
+				for (int i = listaDelanteros.size()-1; i>22; i--) {
+					listaDelanteros.remove(i);
+				}
+			}
 		}
 		
 		

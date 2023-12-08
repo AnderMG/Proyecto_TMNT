@@ -32,6 +32,13 @@ public class Jugador extends Persona {
 		this.quimica = qumica;
 	}
 	
+	public Jugador(String nombre, String apellido, Temporada temporada, Posicion posicion, Elemento elemento, int media) {
+		super(nombre, apellido);
+		this.elemento = elemento;
+		this.posicion = posicion;
+		this.temporada = temporada;
+		this.media = media;
+	}
 	// para crear jugadores con los ficheros
 	
 	public Jugador(int ID, Elemento elemento, Posicion posicion, Temporada temporada, String nombre, int media) {

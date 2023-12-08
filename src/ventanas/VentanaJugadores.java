@@ -1,12 +1,25 @@
 package ventanas;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+
+import clases.Jugador;
+import clases.Posicion;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
+import utils.CargarJugadores;
 import utils.FondoEnVentana;
 	
 
@@ -14,6 +27,8 @@ public class VentanaJugadores extends JFrame{
 
 	private JPanel contentPane;
 	private JPanel panelJugadores = new JPanel();
+	private DefaultTableModel modelo;
+	private JTable tabla;
 	
 	public VentanaJugadores() {
 	setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -26,101 +41,96 @@ public class VentanaJugadores extends JFrame{
 	contentPane.setLayout(null);
 	setLayout(new BorderLayout());
 	
-	Object[][] jugadores = {
-			{"Mark", "Evans", 1, "Portero", "Montañia", 94},
-			{"Darren", "Lachance", 2, "Portero", "Bosque", 88},
-			{"Dvalin", null, 2, "Portero", "Fuego", 87},
-			{"Gigi", "Blasi", 3, "Portero", "Aire", 87},
-			{"Hector", "Helio", 3, "Portero", "Montañia", 92},
-			{"Joseph", "King", 1, "Portero", "Fuego", 85},
-			{"Lars", "Luceafar", 3, "Portero", "Montañia", 90},
-			{"Nero", null, 1, "Portero", "Aire", 88},
-			{"Preston", "Princeton", 4, "Portero", "Bosque", 83},
-			{"Quentin", "Cinquedea", 4, "Portero", "Fuego", 89},
-			{"Terry", "Archibald", 6, "Portero", "Aire", 91},
-			{"Thomas", "Feldt", 1, "Portero", "Bosque", 75},
-			{"Aitor", "Cazador", 4, "Defensa", "Bosque", 86},
-			{"Archer", "Hawkins", 3, "Defensa", "Aire", 84},
-			{"Ares", null, 1, "Defensa", "Montañia", 80},
-			{"Bilal", "Kalil", 3, "Defensa", "Bosque", 85},
-			{"Bobby", "Shearer", 1, "Defensa", "Bosque", 83},
-			{"Franck", "Foreman", 6, "Defensa", "Fuego", 83},
-			{"Gabriel", "Garcia", 4, "Defensa", "Bosque", 89},
-			{"Hurley", "Kane", 2, "Defensa", "Aire", 84},
-			{"Jack", "Wallside", 1, "Defensa", "Montañia", 86},
-			{"JP", "Lapin", 4, "Defensa", "Montañia", 84},
-			{"Keenan", "Sharpe", 6, "Defensa", "Montañia", 86},
-			{"Kiburn", null, 2, "Defensa", "Fuego", 84},
-			{"Lephiel", null, 3, "Defensa", "Montañia", 85},
-			{"Paul", "Peabody", 4, "Defensa", "Aire", 76},
-			{"Scotty", "Banyan", 2, "Defensa", "Bosque", 82},
-			{"Sor", null, 5, "Defensa", "Aire", 82},
-			{"Subaru", "Honda", 6, "Defensa", "Fuego", 82},
-			{"Tiago", "Torres", 3, "Defensa", "Fuego", 88},
-			{"Tod", "Iron", 1, "Defensa", "Fuego", 77},
-			{"Tina", "Verdure", 6, "Defensa", "Bosque", 90},
-			{"Wanli", "Chancheng", 4, "Defensa", "Montañia", 83},
-			{"Zippy", "Lerner", 6, "Defensa", "Aire", 82},
-			{"Iggie", "Loo", 4, "Defensa", "Aire", 85},
-			{"Goldie", "Lemmon", 5, "Defensa", "Fuego", 91},
-			{"Jude", "Sharp", 1, "Medio", "Aire", 93},
-			{"Ade", "Kebe", 4, "Medio", "Aire", 83},
-			{"Arion", "Sherwind", 4, "Medio", "Aire", 93},
-			{"Asuto", "Inamori", 1, "Medio", "Fuego", 90},
-			{"Bay", "Laurel", 4, "Medio", "Montañia", 89},
-			{"Byron", "Love", 1, "Medio", "Bosque", 92},
-			{"Caleb", "Stonewall", 2, "Medio", "Fuego", 88},
-			{"Cerise", "Blossom", 6, "Medio", "Aire", 82},
-			{"Changsu", "Choi", 3, "Medio", "Fuego", 87},
-			{"Circulus", "Rugu", 6, "Medio", "Fuego", 91},
-			{"Cronus", "Fourseasons", 4, "Medio", "Fuego", 89},
-			{"Desmodus", "Drakul", 5, "Medio", "Montañia", 90},
-			{"Erik", "Eagle", 1, "Medio", "Bosque", 90},
-			{"Fei", "Rune", 5, "Medio", "Bosque", 90},
-			{"Harrold", "Houdini", 4, "Medio", "Bosque", 88},
-			{"Hidetoshi", "Nakata", 3, "Medio", "Montañia", 93},
-			{"Julien", "Rosseau", 3, "Medio", "Montañia", 84},
-			{"Nathan", "Swift", 1, "Medio", "Aire", 90},
-			{"Nosaka", "Yuuma", 1, "Medio", "Montañia", 92},
-			{"Paolo", "Bianchi", 3, "Medio", "Bosque", 93},
-			{"Riccardo", "Di Rigo", 4, "Medio", "Bosque", 92},
-			{"Ryoma", "Nishiki", 4, "Medio", "Montañia", 86},
-			{"Sol", "Daystar", 4, "Medio", "Fuego", 93},
-			{"Victoria", "Vanguard", 2, "Medio", "Aire", 83},
-			{"Axel", "Blaze", 1, "Delantero", "Fuego", 93},
-			{"Austin", "Hobbes", 3, "Delantero", "Bosque", 91},
-			{"Bailong", null, 4, "Delantero", "Aire", 93},
-			{"Bala", null, 6, "Delantero", "Fuego", 90},
-			{"Beta", null, 5, "Delantero", "Aire", 89},
-			{"Bryce", "Withingale", 2, "Delantero", "Aire", 91},
-			{"Clario", "Orvan", 1, "Delantero", "Montañia", 92},
-			{"Claude", "Beacons", 2, "Delantero", "Fuego", 91},
-			{"Destra", null, 3, "Delantero", "Montañia", 90},
-			{"Falco", "Flashman", 6, "Delantero", "Aire", 90},
-			{"Gamma", null, 5, "Delantero", "Bosque", 89},
-			{"Gandares", null, 6, "Delantero", "Bosque", 90},
-			{"Haizaki", "Ryouhei", 1, "Delantero", "Bosque", 91},
-			{"Kevin", "Dragonfly", 1, "Delantero", "Bosque", 88},
-			{"Maxwell", "Carson", 1, "Delantero", "Aire", 81},
-			{"Rex", "Regmington", 4, "Delantero", "Montañia", 86},
-			{"Swan", "Froste", 2, "Delantero", "Aire", 93},
-			{"Simeon", "Ayp", 5, "Delantero", "Montañia", 92},
-			{"Tezcat", null, 4, "Delantero", "Bosque", 92},
-			{"Victor", "Blade", 4, "Delantero", "Fuego", 93},
-			{"Wolfram", "Vulpeen", 5, "Delantero", "Fuego", 90},
-			{"Xene", null, 2, "Delantero", "Fuego", 92},
-			{"Zanark", "Avalonic", 5, "Delantero", "Montañia", 93}
-			
+	
+	String [] columnas = {"Nombre", "Apellido", "Temporda", "Afinidad", "Media"};
+	
+	modelo = new DefaultTableModel(columnas, 0) {
+
+		@Override
+		public boolean isCellEditable(int row, int column) {
+			return false;
+		}
+
+		@Override
+		public Object getValueAt(int row, int column) {
+			return super.getValueAt(row, column);
+		}
+		
+	};
+	//añadir al modelo el mapa de jugadores//
+	HashMap<Posicion, ArrayList<Jugador>> mapaVentanaJugadores = CargarJugadores.CargarMapaJugadores();
+	Posicion posi = null;
+	for (ArrayList<Jugador> p : mapaVentanaJugadores.values()) {
+		for (Jugador j: p){
+			if (posi != j.getPosicion()) {
+				modelo.addRow(new Object[] {j.getPosicion()+"S", "", "", "", "", ""});
+				posi = j.getPosicion();
+				modelo.addRow(new Object[] {j.getNombre(), j.getApellido(), j.getTemporada(), j.getElemento(), j.getMedia()});
+			}else {
+				modelo.addRow(new Object[] {j.getNombre(), j.getApellido(), j.getTemporada(), j.getElemento(), j.getMedia()});
+			}
+		}
 	};
 	
-	String [] columnas = {"Nombre", "Apellido", "Temporda", "Posicion", "Afinidad", "Media"};
+	tabla = new JTable(modelo);
+	tabla.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+
+		@Override
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+				int row, int column) {
+			Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+			if("".equals(modelo.getValueAt(row, 3))) {
+				c.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 15));
+				c.setBackground(Color.orange);
+			}else {
+				c.setBackground(Color.white);
+			}
+			return c;
+		}
+		
+		
+	});
 	
-	JTable table = new JTable(jugadores, columnas);
-	JScrollPane scrollPane = new JScrollPane(table);
+	JScrollPane scrollPane = new JScrollPane(tabla);
     add(scrollPane, BorderLayout.CENTER);
-	
-	
+    
+
 	setVisible(true);
 	VentanaPrincipal.logger.log(Level.FINEST, "Se ha abierto la ventana jugadores");
+	iniciarHiloScroll(scrollPane);
+	
+	addWindowListener(new WindowAdapter() {
+
+		@Override
+		public void windowClosed(WindowEvent e) {
+			super.windowClosed(e);
+		}
+		
+	});
+	
 	}
-}
+
+	private void iniciarHiloScroll(JScrollPane sc) {
+		Thread hiloScroll = new Thread(new Runnable() {
+	    	@Override
+			public void run() {	
+				try {
+					while (true) {	
+						int posAct = sc.getVerticalScrollBar().getValue();
+				    	int posMax = sc.getVerticalScrollBar().getMaximum(); 
+				    	
+						if (posAct < posMax) {
+							sc.getVerticalScrollBar().setValue(posAct+1);		
+							Thread.sleep(35);
+						}else {
+							sc.getVerticalScrollBar().setValue(sc.getVerticalScrollBar().getMinimum());
+							Thread.sleep(1500);
+						}
+					}
+				}catch(InterruptedException e){
+					e.printStackTrace();
+				}			
+			}
+	    });
+		hiloScroll.start();
+}}
