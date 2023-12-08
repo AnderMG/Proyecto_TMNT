@@ -2845,3 +2845,78 @@
   <message>Se ha pulsado boton inicio de sesion</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-12-08T19:20:46.203003200Z</date>
+  <millis>1702063246203</millis>
+  <nanos>3200</nanos>
+  <sequence>0</sequence>
+  <logger>ventanas.VentanaPrincipal</logger>
+  <level>FINEST</level>
+  <class>ventanas.VentanaPrincipal</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Se ha iniciado la ventana principal</message>
+</record>
+<record>
+  <date>2023-12-08T19:20:47.449364100Z</date>
+  <millis>1702063247449</millis>
+  <nanos>364100</nanos>
+  <sequence>1</sequence>
+  <logger>ventanas.VentanaPrincipal</logger>
+  <level>FINE</level>
+  <class>ventanas.VentanaPrincipal$1</class>
+  <method>actionPerformed</method>
+  <thread>21</thread>
+  <message>Se ha pulsado el boton jugadores</message>
+</record>
+<record>
+  <date>2023-12-08T19:20:47.565871900Z</date>
+  <millis>1702063247565</millis>
+  <nanos>871900</nanos>
+  <sequence>2</sequence>
+  <logger>ventanas.VentanaPrincipal</logger>
+  <level>FINEST</level>
+  <class>ventanas.VentanaJugadores</class>
+  <method>&lt;init&gt;</method>
+  <thread>21</thread>
+  <message>Se ha abierto la ventana jugadores</message>
+</record>
+<record>
+  <date>2023-12-08T19:21:35.650968600Z</date>
+  <millis>1702063295650</millis>
+  <nanos>968600</nanos>
+  <sequence>3</sequence>
+  <logger>ventanas.VentanaPrincipal</logger>
+  <level>FINE</level>
+  <class>ventanas.VentanaPrincipal$2</class>
+  <method>actionPerformed</method>
+  <thread>21</thread>
+  <message>Se ha pulsado el boton jugar</message>
+</record>
+<record>
+  <date>2023-12-08T19:21:35.650968600Z</date>
+  <millis>1702063295650</millis>
+  <nanos>968600</nanos>
+  <sequence>4</sequence>
+  <logger>ventanas.VentanaPrincipal</logger>
+  <level>FINE</level>
+  <class>ventanas.VentanaPrincipal$2</class>
+  <method>actionPerformed</method>
+  <thread>21</thread>
+  <message>El inicio de sesion era incorrecto o nulo, no se ha podido inicar</message>
+</record>
+<record>
+  <date>2023-12-08T19:21:38.613104Z</date>
+  <millis>1702063298613</millis>
+  <nanos>104000</nanos>
+  <sequence>5</sequence>
+  <logger>ventanas.VentanaPrincipal</logger>
+  <level>FINE</level>
+  <class>ventanas.VentanaPrincipal$3</class>
+  <method>actionPerformed</method>
+  <thread>21</thread>
+  <message>Se ha pulsado boton inicio de sesion</message>
+</record>
