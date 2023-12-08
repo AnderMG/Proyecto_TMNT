@@ -64,7 +64,6 @@ public class VentanaPrincipal {
 			public void actionPerformed(ActionEvent e) {
 				logger.log(Level.FINE, "Se ha pulsado el boton jugadores");
 				new VentanaJugadores();
-				ventanaPrincipal.dispose();
 			}
 		});
 		//Boton que inicia el juego
