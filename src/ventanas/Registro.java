@@ -21,6 +21,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.SystemColor;
 
+import utils.DaoUsuario;
+import clases.Usuario;
 public class Registro extends JFrame {
 
 	private JPanel contentPane;
@@ -28,7 +30,7 @@ public class Registro extends JFrame {
 	private JTextField tfNombreCompleto;
 	private JTextField tfEdad;
 	private JPasswordField passwordField;
-
+	DaoUsuario dao = new DaoUsuario();
 
 	public Registro() {
 		setTitle("Registro");
@@ -120,10 +122,20 @@ public class Registro extends JFrame {
 						JOptionPane.showMessageDialog(jOptionPane, "Tienes que rellenar todos los huecos.");
 					}
 					else{	
+						Usuario usuario = new Usuario();
+						usuario.setNombreUsuario(tfNombre.getText());
+						usuario.setPassword(passwordField.getText());
+						usuario.setNombreReal(tfNombreCompleto.getText());
+						usuario.setEdad(Integer.parseInt(tfEdad.getText()));
 						utils.EscribirFichero.agregarUsuario(tfNombre.getText(), passwordField.getText(), tfNombreCompleto.getText(), edad);
+						if(dao.insertarUsuario(usuario)) {
+							System.out.println("Se ha añadido correctamente a la base de datos");
+						}
+						else {
+							System.out.println("No se ha añadido a la base de datos");
+						}
 						JOptionPane jOptionPane = new JOptionPane();
 						JOptionPane.showMessageDialog(jOptionPane, "Resgistro completado");
-					
 						Login login = new Login();
 						login.setVisible(true);
 						dispose();
