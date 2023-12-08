@@ -17,11 +17,11 @@ public class DaoUsuario {
 	public boolean insertarUsuario(Usuario usuario) {
 		PreparedStatement ps = null;
 		try {
-			ps=cx.conectar().prepareStatement("INSERT INTO usuario VALUES(null,?,?,?,null)");
+			ps=cx.conectar().prepareStatement("INSERT INTO usuario VALUES(null,?,?,?,?)");
 			ps.setString(1, usuario.getNombreUsuario());
 			ps.setString(2, usuario.getPassword());
 			ps.setString(3, usuario.getNombreReal());
-//			ps.setInt(4, usuario.getEdad());
+			ps.setInt(4, usuario.getEdad());
 			ps.executeUpdate();
 			cx.desconectar();
 			return true;
