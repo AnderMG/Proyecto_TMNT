@@ -3,3 +3,5 @@
 3;c;c;c;33
 4;Mikel;mikeletxe23;Mikel Prieto;19
 5;as;asf;asdf;12
+6;k;k;k;1
+7;3;3;3;3

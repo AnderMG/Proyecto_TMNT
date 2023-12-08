@@ -21,7 +21,7 @@ public class DaoUsuario {
 			ps.setString(1, usuario.getNombreUsuario());
 			ps.setString(2, usuario.getPassword());
 			ps.setString(3, usuario.getNombreReal());
-			ps.setInt(4, usuario.getEdad());
+//			ps.setInt(4, usuario.getEdad());
 			ps.executeUpdate();
 			cx.desconectar();
 			return true;
