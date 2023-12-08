@@ -9,5 +9,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="tests"/>
 	<classpathentry kind="lib" path="lib/sqlite-jdbc-3.43.0.0.jar"/>
+	<classpathentry kind="lib" path="src/conexion/sqlite-jdbc-3.44.1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
