@@ -9,7 +9,7 @@ public class Quimica {
 			quimica = quimica + 10;
 		}
 		if (jugador.getTemporada() == jugador2.getTemporada()) {
-			quimica = quimica + 10;
+			quimica = quimica + 15;
 		}	
 		return quimica;
 	}

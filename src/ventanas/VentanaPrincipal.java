@@ -26,15 +26,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import clases.Usuario;
+import conexion.Conexion;
 import utils.FondoEnVentana;
 import utils.HiloTiempoEnJuego;
 import utils.Quimica;
 
-
 public class VentanaPrincipal {
 	protected static boolean iniciadoSesion = false;
 	protected static Logger logger;
-	
 	public static void main(String[] args) { 
 		//Creamos el logger	
 		try {
