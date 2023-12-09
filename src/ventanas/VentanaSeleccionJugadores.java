@@ -22,12 +22,15 @@ import clases.Portero;
 import utils.LeerJugadorCampo;
 import utils.Quimica;
 
+import utils.DaoFormacion;
+
 public class VentanaSeleccionJugadores extends JFrame {
 	protected static ArrayList<Portero> listaPorteros = new ArrayList<>();
 	protected static ArrayList<JugaCampo> listaDefensas = new ArrayList<>();
 	protected static ArrayList<JugaCampo> listaMediocentros = new ArrayList<>();
 	protected static ArrayList<JugaCampo> listaDelanteros = new ArrayList<>();
 	protected static ArrayList<Jugador> plantilla = new ArrayList<>();
+	DaoFormacion dao = new DaoFormacion();
 	
 	public VentanaSeleccionJugadores(int posicion, JLabel carta, String formacion) {
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -96,6 +99,18 @@ public class VentanaSeleccionJugadores extends JFrame {
 							VentanaElegirPlantilla.barraQumica.setValue(Quimica.calcularQuimicaFormacion(formacion, plantilla.get(0), plantilla.get(1), plantilla.get(2), plantilla.get(3), plantilla.get(4), plantilla.get(5)));
 							VentanaElegirPlantilla.etiquetaValoracion.setText("Valoracion: " + VentanaElegirPlantilla.barraValoracion.getValue());
 							VentanaElegirPlantilla.etiquetaQuimica.setText("Quimica: " + VentanaElegirPlantilla.barraQumica.getValue());
+							int quimica = VentanaElegirPlantilla.barraQumica.getValue();
+							int valoracion = VentanaElegirPlantilla.barraValoracion.getValue();
+							int valoraciontotal = quimica + valoracion;
+							if(dao.insertarFormacion(1, "2-1-2",quimica, valoracion, valoraciontotal, plantilla.get(0).getID(), 
+									plantilla.get(1).getID(), plantilla.get(2).getID(), plantilla.get(3).getID(), plantilla.get(4).getID(),
+									plantilla.get(5).getID())) {
+								System.out.println("Se ha añadido correctamente a la base de datos");
+							}
+							else {
+								System.out.println("No se ha añadido a la base de datos");
+							}
+							
 						}
 						VentanaSeleccionJugadores.this.dispose();
 						super.mouseClicked(e);
@@ -132,6 +147,17 @@ public class VentanaSeleccionJugadores extends JFrame {
 							VentanaElegirPlantilla.barraQumica.setValue(Quimica.calcularQuimicaFormacion(formacion, plantilla.get(0), plantilla.get(1), plantilla.get(2), plantilla.get(3), plantilla.get(4), plantilla.get(5)));
 							VentanaElegirPlantilla.etiquetaValoracion.setText("Valoracion: " + VentanaElegirPlantilla.barraValoracion.getValue());
 							VentanaElegirPlantilla.etiquetaQuimica.setText("Quimica: " + VentanaElegirPlantilla.barraQumica.getValue());
+							int quimica = VentanaElegirPlantilla.barraQumica.getValue();
+							int valoracion = VentanaElegirPlantilla.barraValoracion.getValue();
+							int valoraciontotal = quimica + valoracion;
+							if(dao.insertarFormacion(1, "2-1-2",quimica, valoracion, valoraciontotal, plantilla.get(0).getID(), 
+									plantilla.get(1).getID(), plantilla.get(2).getID(), plantilla.get(3).getID(), plantilla.get(4).getID(),
+									plantilla.get(5).getID())) {
+								System.out.println("Se ha añadido correctamente a la base de datos");
+							}
+							else {
+								System.out.println("No se ha añadido a la base de datos");
+							}
 						}
 						VentanaSeleccionJugadores.this.dispose();
 						super.mouseClicked(e);
@@ -169,6 +195,17 @@ public class VentanaSeleccionJugadores extends JFrame {
 							VentanaElegirPlantilla.barraQumica.setValue(Quimica.calcularQuimicaFormacion(formacion, plantilla.get(0), plantilla.get(1), plantilla.get(2), plantilla.get(3), plantilla.get(4), plantilla.get(5)));
 							VentanaElegirPlantilla.etiquetaValoracion.setText("Valoracion: " + VentanaElegirPlantilla.barraValoracion.getValue());
 							VentanaElegirPlantilla.etiquetaQuimica.setText("Quimica: " + VentanaElegirPlantilla.barraQumica.getValue());
+							int quimica = VentanaElegirPlantilla.barraQumica.getValue();
+							int valoracion = VentanaElegirPlantilla.barraValoracion.getValue();
+							int valoraciontotal = quimica + valoracion;
+							if(dao.insertarFormacion(1, "2-1-2",quimica, valoracion, valoraciontotal, plantilla.get(0).getID(), 
+									plantilla.get(1).getID(), plantilla.get(2).getID(), plantilla.get(3).getID(), plantilla.get(4).getID(),
+									plantilla.get(5).getID())) {
+								System.out.println("Se ha añadido correctamente a la base de datos");
+							}
+							else {
+								System.out.println("No se ha añadido a la base de datos");
+							}
 						}
 						VentanaSeleccionJugadores.this.dispose();
 						super.mouseClicked(e);
@@ -205,6 +242,17 @@ public class VentanaSeleccionJugadores extends JFrame {
 							VentanaElegirPlantilla.barraQumica.setValue(Quimica.calcularQuimicaFormacion(formacion, plantilla.get(0), plantilla.get(1), plantilla.get(2), plantilla.get(3), plantilla.get(4), plantilla.get(5)));
 							VentanaElegirPlantilla.etiquetaValoracion.setText("Valoracion: " + VentanaElegirPlantilla.barraValoracion.getValue());
 							VentanaElegirPlantilla.etiquetaQuimica.setText("Quimica: " + VentanaElegirPlantilla.barraQumica.getValue());
+							int quimica = VentanaElegirPlantilla.barraQumica.getValue();
+							int valoracion = VentanaElegirPlantilla.barraValoracion.getValue();
+							int valoraciontotal = quimica + valoracion;
+							if(dao.insertarFormacion(1, "2-1-2",quimica, valoracion, valoraciontotal, plantilla.get(0).getID(), 
+									plantilla.get(1).getID(), plantilla.get(2).getID(), plantilla.get(3).getID(), plantilla.get(4).getID(),
+									plantilla.get(5).getID())) {
+								System.out.println("Se ha añadido correctamente a la base de datos");
+							}
+							else {
+								System.out.println("No se ha añadido a la base de datos");
+							}
 						}
 						VentanaSeleccionJugadores.this.dispose();
 						super.mouseClicked(e);
