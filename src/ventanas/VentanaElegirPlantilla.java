@@ -120,10 +120,12 @@ public class VentanaElegirPlantilla extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				if (VentanaSeleccionJugadores.plantilla.size() == 6) {
 					hiloDuracion.interrupt();
+		//al finalizar se añade la formacion a la base de datos//
+					
 					int quimica = VentanaElegirPlantilla.barraQumica.getValue();
 					int valoracion = VentanaElegirPlantilla.barraValoracion.getValue();
 					int valoraciontotal = quimica + valoracion;
-					if(dao.insertarFormacion(1, "2-1-2",quimica, valoracion, valoraciontotal, VentanaSeleccionJugadores.plantilla.get(0).getID(), 
+					if(dao.insertarFormacion(1, formacion,quimica, valoracion, valoraciontotal, VentanaSeleccionJugadores.plantilla.get(0).getID(), 
 							VentanaSeleccionJugadores.plantilla.get(1).getID(), VentanaSeleccionJugadores.plantilla.get(2).getID(), 
 							VentanaSeleccionJugadores.plantilla.get(3).getID(), VentanaSeleccionJugadores.plantilla.get(4).getID(),
 							VentanaSeleccionJugadores.plantilla.get(5).getID())) {
