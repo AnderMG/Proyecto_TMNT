@@ -7,6 +7,7 @@ import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Collections;import java.util.Comparator;
 import java.util.Random;
 
 import javax.swing.Icon;
@@ -70,6 +71,11 @@ public class VentanaSeleccionJugadores extends JFrame {
 			}
 		}
 		
+		Comparator<Jugador> compararID = (j1, j2) -> {
+			return Integer.compare(j1.getID(), j2.getID());
+		};
+				
+		
 		
 		switch (posicion) {
 		case 1:
@@ -93,6 +99,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 						VentanaElegirPlantilla.SetImageLabel(carta, "src/imagenes/Porteros/" + nombre +".png");
 						VentanaElegirPlantilla.numMaxClickPor = 0;
 						if(plantilla.size() == 6) {
+							Collections.sort(plantilla, compararID);
 							VentanaElegirPlantilla.plantillaCompleta = true;
 							VentanaElegirPlantilla.barraValoracion.setValue(Quimica.calcularValoracionFormacion(plantilla.get(0), plantilla.get(1), plantilla.get(2), plantilla.get(3), plantilla.get(4), plantilla.get(5)));
 							VentanaElegirPlantilla.barraQumica.setValue(Quimica.calcularQuimicaFormacion(formacion, plantilla.get(0), plantilla.get(1), plantilla.get(2), plantilla.get(3), plantilla.get(4), plantilla.get(5)));
@@ -129,6 +136,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 						VentanaElegirPlantilla.SetImageLabel(carta, "src/imagenes/Defensas/" + nombre +".png");
 						VentanaElegirPlantilla.numMaxClickDef -=1;
 						if(plantilla.size() == 6) {
+							Collections.sort(plantilla, compararID);
 							VentanaElegirPlantilla.plantillaCompleta = true;
 							VentanaElegirPlantilla.barraValoracion.setValue(Quimica.calcularValoracionFormacion(plantilla.get(0), plantilla.get(1), plantilla.get(2), plantilla.get(3), plantilla.get(4), plantilla.get(5)));
 							VentanaElegirPlantilla.barraQumica.setValue(Quimica.calcularQuimicaFormacion(formacion, plantilla.get(0), plantilla.get(1), plantilla.get(2), plantilla.get(3), plantilla.get(4), plantilla.get(5)));
@@ -166,6 +174,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 						VentanaElegirPlantilla.SetImageLabel(carta, "src/imagenes/Mediocentros/" + nombre +".png");
 						VentanaElegirPlantilla.numMaxClickMed -=1;
 						if(plantilla.size() == 6) {
+							Collections.sort(plantilla, compararID);
 							VentanaElegirPlantilla.plantillaCompleta = true;
 							VentanaElegirPlantilla.barraValoracion.setValue(Quimica.calcularValoracionFormacion(plantilla.get(0), plantilla.get(1), plantilla.get(2), plantilla.get(3), plantilla.get(4), plantilla.get(5)));
 							VentanaElegirPlantilla.barraQumica.setValue(Quimica.calcularQuimicaFormacion(formacion, plantilla.get(0), plantilla.get(1), plantilla.get(2), plantilla.get(3), plantilla.get(4), plantilla.get(5)));
@@ -202,6 +211,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 						VentanaElegirPlantilla.SetImageLabel(carta, "src/imagenes/Delanteros/" + nombre +".png");
 						VentanaElegirPlantilla.numMaxClickDel -=1;
 						if(plantilla.size() == 6) {
+							Collections.sort(plantilla, compararID);
 							VentanaElegirPlantilla.plantillaCompleta = true;
 							VentanaElegirPlantilla.barraValoracion.setValue(Quimica.calcularValoracionFormacion(plantilla.get(0), plantilla.get(1), plantilla.get(2), plantilla.get(3), plantilla.get(4), plantilla.get(5)));
 							VentanaElegirPlantilla.barraQumica.setValue(Quimica.calcularQuimicaFormacion(formacion, plantilla.get(0), plantilla.get(1), plantilla.get(2), plantilla.get(3), plantilla.get(4), plantilla.get(5)));

@@ -34,6 +34,7 @@ import utils.Quimica;
 public class VentanaPrincipal {
 	protected static boolean iniciadoSesion = false;
 	protected static Logger logger;
+	public static int IDusuario;
 	public static void main(String[] args) { 
 		//Creamos el logger	
 		try {

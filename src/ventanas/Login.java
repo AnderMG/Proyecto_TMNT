@@ -30,7 +30,6 @@ public class Login extends JFrame {
 	private JTextField tfNomUsuario;
 	private JPasswordField passwordField;
 
-
 	public Login() {
 		setTitle("Login");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

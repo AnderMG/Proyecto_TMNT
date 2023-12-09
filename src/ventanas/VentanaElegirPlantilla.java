@@ -125,7 +125,7 @@ public class VentanaElegirPlantilla extends JFrame{
 					int quimica = VentanaElegirPlantilla.barraQumica.getValue();
 					int valoracion = VentanaElegirPlantilla.barraValoracion.getValue();
 					int valoraciontotal = quimica + valoracion;
-					if(dao.insertarFormacion(1, formacion,quimica, valoracion, valoraciontotal, VentanaSeleccionJugadores.plantilla.get(0).getID(), 
+					if(dao.insertarFormacion(VentanaPrincipal.IDusuario, formacion,quimica, valoracion, valoraciontotal, VentanaSeleccionJugadores.plantilla.get(0).getID(), 
 							VentanaSeleccionJugadores.plantilla.get(1).getID(), VentanaSeleccionJugadores.plantilla.get(2).getID(), 
 							VentanaSeleccionJugadores.plantilla.get(3).getID(), VentanaSeleccionJugadores.plantilla.get(4).getID(),
 							VentanaSeleccionJugadores.plantilla.get(5).getID())) {

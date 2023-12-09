@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import clases.Usuario;
+import ventanas.VentanaPrincipal;
 
 public class LeerFichero {
 	
@@ -51,6 +52,7 @@ public class LeerFichero {
             String linea = scanner.nextLine();
             String[] campos = linea.split(";");
             if (campos.length == 5 && campos[1].equals(nombreUsuario) && campos[2].equals(password)) {
+            	VentanaPrincipal.IDusuario = Integer.parseInt(campos[0]);
                 scanner.close();
                 return true;
             }
