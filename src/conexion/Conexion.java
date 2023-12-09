@@ -15,8 +15,10 @@ public class Conexion {
 				System.out.println("Conexion aceptada");
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
+				System.out.println("Conexion no aceptada");
 			} catch (SQLException e1) {
 				e1.printStackTrace();
+				System.out.println("Conexion no aceptada");
 			}
 			return cx;
 		}

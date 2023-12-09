@@ -26,6 +26,7 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.SwingConstants;
 
+import utils.DaoFormacion;
 import utils.FondoEnVentana;
 import utils.HiloTiempoEnJuego;
 
@@ -51,6 +52,8 @@ public class VentanaElegirPlantilla extends JFrame{
 	public static JLabel etiquetaQuimica = new JLabel();
 	String ruta = "src/imagenes/DefaultCardPeque.png";
 	VentanaSeleccionJugadores ventSeleccion;
+	
+	DaoFormacion dao = new DaoFormacion();
 
 	public VentanaElegirPlantilla(String formacion) {
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -117,6 +120,18 @@ public class VentanaElegirPlantilla extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				if (VentanaSeleccionJugadores.plantilla.size() == 6) {
 					hiloDuracion.interrupt();
+					int quimica = VentanaElegirPlantilla.barraQumica.getValue();
+					int valoracion = VentanaElegirPlantilla.barraValoracion.getValue();
+					int valoraciontotal = quimica + valoracion;
+					if(dao.insertarFormacion(1, "2-1-2",quimica, valoracion, valoraciontotal, VentanaSeleccionJugadores.plantilla.get(0).getID(), 
+							VentanaSeleccionJugadores.plantilla.get(1).getID(), VentanaSeleccionJugadores.plantilla.get(2).getID(), 
+							VentanaSeleccionJugadores.plantilla.get(3).getID(), VentanaSeleccionJugadores.plantilla.get(4).getID(),
+							VentanaSeleccionJugadores.plantilla.get(5).getID())) {
+						System.out.println("Se ha añadido correctamente a la base de datos");
+					}
+					else {
+						System.out.println("No se ha añadido a la base de datos");
+					}
 				}
 							
 			}
