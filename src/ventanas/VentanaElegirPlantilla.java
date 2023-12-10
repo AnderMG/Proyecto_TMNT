@@ -22,6 +22,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.SwingConstants;
@@ -120,7 +121,8 @@ public class VentanaElegirPlantilla extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				if (VentanaSeleccionJugadores.plantilla.size() == 6) {
 					hiloDuracion.interrupt();
-		//al finalizar se añade la formacion a la base de datos//
+					VentanaPrincipal.logger.log(Level.FINEST, "Plantilla completa");
+					//al finalizar se añade la formacion a la base de datos//
 					
 					int quimica = VentanaElegirPlantilla.barraQumica.getValue();
 					int valoracion = VentanaElegirPlantilla.barraValoracion.getValue();
@@ -129,11 +131,13 @@ public class VentanaElegirPlantilla extends JFrame{
 							VentanaSeleccionJugadores.plantilla.get(1).getID(), VentanaSeleccionJugadores.plantilla.get(2).getID(), 
 							VentanaSeleccionJugadores.plantilla.get(3).getID(), VentanaSeleccionJugadores.plantilla.get(4).getID(),
 							VentanaSeleccionJugadores.plantilla.get(5).getID())) {
-						System.out.println("Se ha añadido correctamente a la base de datos");
+						VentanaPrincipal.logger.log(Level.FINEST, "Se ha añadido correctamente a la base de datos");
 					}
 					else {
-						System.out.println("No se ha añadido a la base de datos");
+						VentanaPrincipal.logger.log(Level.WARNING, "No se ha añadido a la base de datos");
 					}
+				}else {
+					JOptionPane.showMessageDialog(null, "Debes completar la plantilla primero");
 				}
 							
 			}
@@ -166,16 +170,18 @@ public class VentanaElegirPlantilla extends JFrame{
 			}
 			
 		});
+		//añadimos los paneles de cabecera y alineacion a la ventana//
 		add(panelCabecera, BorderLayout.NORTH);
 		add(panelAlineacion, BorderLayout.CENTER);
 		
 		
 		
 		setVisible(true);
+		VentanaPrincipal.logger.log(Level.FINEST, "Se ha abierto la ventana de elegir plantilla");
 		hiloDuracion.start();
 	}
 	
-	//Metodo rellenar las lineas de la alineacion con las imagenes
+	//Metodo que rellena las lineas de la alineacion con las imagenes de las cartas//
 	public JPanel crearAlineacion (int nJugadoresPosicion, JPanel panelPosicion, int posicion, String formacion) {
 		for (int i = 0; i < nJugadoresPosicion; i++) {
 			JLabel etiqueta = new JLabel("", SwingConstants.CENTER);
@@ -187,7 +193,6 @@ public class VentanaElegirPlantilla extends JFrame{
 				public void mouseClicked(MouseEvent e) {
 					if (posicion==1 & numMaxClickPor!=0 || posicion==2 & numMaxClickDef!=0 || posicion==3 & numMaxClickMed!=0 || posicion==4 & numMaxClickDel!=0)
 					ventSeleccion = new VentanaSeleccionJugadores(posicion, etiqueta, formacion);
-					VentanaPrincipal.logger.log(Level.FINE, "Se ha abierto la ventana de seleccion de jugador");
 					super.mouseClicked(e);					
 				}
 				

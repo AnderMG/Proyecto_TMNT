@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Collections;import java.util.Comparator;
 import java.util.Random;
+import java.util.logging.Level;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -76,10 +77,14 @@ public class VentanaSeleccionJugadores extends JFrame {
 		};
 				
 		
-		
+		//4 casos en base a la posicion que se quiere elegir//
+		//se escogen 3 jugadores de la lista de los jugadores de dicha posicion//
+		//en base al jugador elegido se cambio la carta de la plantilla con la imagen del jugador elegido//
+		//si este jugador completa la plantilla (6 jugadores), se añade la valoracion y la quimica //
 		switch (posicion) {
 		case 1:
 			setTitle("Seleccion de porteros");
+			VentanaPrincipal.logger.log(Level.FINEST, "Se ha abierto la ventana de seleccionar porteros");
 			for (int i = 0; i < 3; i++) {
 				Random random = new Random();
 				int r = random.nextInt(listaPorteros.size());
@@ -117,6 +122,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 			break;
 		case 2:
 			setTitle("Seleccion de defensas");
+			VentanaPrincipal.logger.log(Level.FINEST, "Se ha abierto la ventana de seleccionar defensas");
 			for (int i = 0; i < 3; i++) {
 				Random random = new Random();
 				int r = random.nextInt(listaDefensas.size());
@@ -155,6 +161,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 			break;
 		case 3:
 			setTitle("Seleccion de medios");
+			VentanaPrincipal.logger.log(Level.FINEST, "Se ha abierto la ventana de seleccionar medios");
 			for (int i = 0; i < 3; i++) {
 				Random random = new Random();
 				int r = random.nextInt(listaMediocentros.size());
@@ -192,6 +199,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 			break;
 		case 4:
 			setTitle("Seleccion de delanteros");
+			VentanaPrincipal.logger.log(Level.FINEST, "Se ha abierto la ventana de seleccionar delanteros");
 			for (int i = 0; i < 3; i++) {
 				Random random = new Random();
 				int r = random.nextInt(listaDelanteros.size());

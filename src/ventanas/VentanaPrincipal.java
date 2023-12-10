@@ -47,18 +47,18 @@ public class VentanaPrincipal {
 			e.printStackTrace();
 		}
 		
-		//Creamos la venta
+		//Creamos la ventana
 		JFrame ventanaPrincipal = new JFrame();
 		ventanaPrincipal.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		ventanaPrincipal.setSize(1000, 700);
 		ventanaPrincipal.setTitle("FutDraft Eleven");
 		ventanaPrincipal.setLocationRelativeTo( null );
 		
-		//Botones de salida
-		JButton btnSalir = new JButton();
-		btnSalir.setText("Jugadores");
-		btnSalir.setOpaque(false);
-		btnSalir.addActionListener(new ActionListener() {
+		//Botones que abre la ventana donde aparecen los jugadores
+		JButton btnJugadores = new JButton();
+		btnJugadores.setText("Jugadores");
+		btnJugadores.setOpaque(false);
+		btnJugadores.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -104,7 +104,7 @@ public class VentanaPrincipal {
 		//Creamos los paneles
 		JPanel panelBotones = new JPanel();
 		panelBotones.setLayout(new GridLayout(1, 3, 10, 0));
-		panelBotones.add(btnSalir);
+		panelBotones.add(btnJugadores);
 		panelBotones.add(btnIniciarSesion);
 		panelBotones.add(btnJugar);
 		

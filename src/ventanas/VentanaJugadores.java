@@ -15,6 +15,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -26,9 +28,9 @@ import utils.FondoEnVentana;
 public class VentanaJugadores extends JFrame{
 
 	private JPanel contentPane;
-	private JPanel panelJugadores = new JPanel();
 	private DefaultTableModel modelo;
 	private JTable tabla;
+	private Thread hiloScroll;
 	
 	public VentanaJugadores() {
 	setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -44,6 +46,7 @@ public class VentanaJugadores extends JFrame{
 	
 	String [] columnas = {"Nombre", "Apellido", "Temporda", "Afinidad", "Media"};
 	
+	//modelo de datos, no es editable//
 	modelo = new DefaultTableModel(columnas, 0) {
 
 		@Override
@@ -73,11 +76,14 @@ public class VentanaJugadores extends JFrame{
 	};
 	
 	tabla = new JTable(modelo);
+	
+	//Renderizado de la tabla//
 	tabla.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
 
 		@Override
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
 				int row, int column) {
+			
 			Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 			if("".equals(modelo.getValueAt(row, 3))) {
 				c.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 15));
@@ -88,47 +94,50 @@ public class VentanaJugadores extends JFrame{
 			return c;
 		}
 		
-		
 	});
+	
+	
 	
 	JScrollPane scrollPane = new JScrollPane(tabla);
     add(scrollPane, BorderLayout.CENTER);
     
-
+    JScrollBar verticalBar = scrollPane.getVerticalScrollBar();
+    
 	setVisible(true);
 	VentanaPrincipal.logger.log(Level.FINEST, "Se ha abierto la ventana jugadores");
-	iniciarHiloScroll(scrollPane);
+	iniciarHiloScroll(verticalBar);
 	
 	addWindowListener(new WindowAdapter() {
 
 		@Override
 		public void windowClosed(WindowEvent e) {
+			hiloScroll.interrupt();
 			super.windowClosed(e);
 		}
 		
 	});
 	
 	}
-
-	private void iniciarHiloScroll(JScrollPane sc) {
-		Thread hiloScroll = new Thread(new Runnable() {
+//Metodo para iniciar/definir el hilo//
+	private void iniciarHiloScroll(JScrollBar scb) {
+		hiloScroll = new Thread(new Runnable() {
 	    	@Override
 			public void run() {	
 				try {
 					while (true) {	
-						int posAct = sc.getVerticalScrollBar().getValue();
-				    	int posMax = sc.getVerticalScrollBar().getMaximum(); 
+						int posAct = scb.getValue();
+						int altIncremento = VentanaJugadores.this.size().height-500;
 				    	
-						if (posAct < posMax) {
-							sc.getVerticalScrollBar().setValue(posAct+1);		
+						if (posAct < (962-altIncremento)) {
+							scb.setValue(posAct+1);		
 							Thread.sleep(35);
 						}else {
-							sc.getVerticalScrollBar().setValue(sc.getVerticalScrollBar().getMinimum());
-							Thread.sleep(1500);
+							scb.setValue(scb.getMinimum());
+							Thread.sleep(2000);
 						}
 					}
 				}catch(InterruptedException e){
-					e.printStackTrace();
+					VentanaPrincipal.logger.log(Level.FINEST, "Hilo de ventana de juagdores interrupido");
 				}			
 			}
 	    });
