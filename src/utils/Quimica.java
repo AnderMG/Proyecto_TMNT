@@ -6,10 +6,10 @@ public class Quimica {
 	public static int calcularQuimicaJugadores(Jugador jugador, Jugador jugador2) {
 		int quimica = 0;
 		if (jugador.getElemento() == jugador2.getElemento()) {
-			quimica = quimica + 10;
+			quimica = quimica + 20;
 		}
 		if (jugador.getTemporada() == jugador2.getTemporada()) {
-			quimica = quimica + 15;
+			quimica = quimica + 25;
 		}	
 		return quimica;
 	}
