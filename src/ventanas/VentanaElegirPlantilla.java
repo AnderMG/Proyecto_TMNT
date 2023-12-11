@@ -30,6 +30,7 @@ import javax.swing.SwingConstants;
 import utils.DaoFormacion;
 import utils.FondoEnVentana;
 import utils.HiloTiempoEnJuego;
+import utils.Quimica;
 
 public class VentanaElegirPlantilla extends JFrame{
 	JPanel panelAlineacion = new JPanel();
@@ -44,7 +45,7 @@ public class VentanaElegirPlantilla extends JFrame{
 	protected static JProgressBar barraQumica = new JProgressBar(0, 100);
 	protected static JProgressBar barraValoracion = new JProgressBar(0, 100);
 	protected static boolean plantillaCompleta = false;
-	protected static int numMaxClickPor = 1;
+	protected static int numMaxClickPor;
 	protected static int numMaxClickDef;
 	protected static int numMaxClickMed;
 	protected static int numMaxClickDel;
@@ -72,11 +73,10 @@ public class VentanaElegirPlantilla extends JFrame{
 		int numeroDefensas = Integer.parseInt(formacion.substring(0, 1));
 		int numeroMedios = Integer.parseInt(formacion.substring(2, 3));
 		int numeroDelanteros = Integer.parseInt(formacion.substring(4, 5));
+		numMaxClickPor = 1;
 		numMaxClickDef = numeroDefensas;
 		numMaxClickMed = numeroMedios;
 		numMaxClickDel = numeroDelanteros;
-		
-		System.out.println("Numero defensas: " + numeroDefensas + "\nNumero medios: " + numeroMedios + "\nNumero Delanteros: " + numeroDelanteros);
 		
 		panelAlineacion.setLayout(new BoxLayout(panelAlineacion, BoxLayout.Y_AXIS));
 		
@@ -131,7 +131,14 @@ public class VentanaElegirPlantilla extends JFrame{
 							VentanaSeleccionJugadores.plantilla.get(1).getID(), VentanaSeleccionJugadores.plantilla.get(2).getID(), 
 							VentanaSeleccionJugadores.plantilla.get(3).getID(), VentanaSeleccionJugadores.plantilla.get(4).getID(),
 							VentanaSeleccionJugadores.plantilla.get(5).getID())) {
-						VentanaPrincipal.logger.log(Level.FINEST, "Se ha añadido correctamente a la base de datos");
+							VentanaPrincipal.logger.log(Level.FINEST, "Se ha añadido correctamente a la base de datos");
+							int valoracionTot = barraQumica.getValue() +  barraValoracion.getValue();
+							JOptionPane.showMessageDialog(null, "Plantilla completada, tu valoración total es de: " + valoracionTot  );
+							dispose();
+							barraQumica.setValue(0);
+							barraValoracion.setValue(0);
+							VentanaSeleccionJugadores.plantilla.clear();
+							VentanaPrincipal.main(null);
 					}
 					else {
 						VentanaPrincipal.logger.log(Level.WARNING, "No se ha añadido a la base de datos");

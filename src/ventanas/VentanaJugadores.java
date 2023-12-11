@@ -17,6 +17,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -31,6 +32,7 @@ public class VentanaJugadores extends JFrame{
 	private DefaultTableModel modelo;
 	private JTable tabla;
 	private Thread hiloScroll;
+	private boolean parado;
 	
 	public VentanaJugadores() {
 	setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -103,9 +105,29 @@ public class VentanaJugadores extends JFrame{
     
     JScrollBar verticalBar = scrollPane.getVerticalScrollBar();
     
+    //Metodo que hace que al clicar en la barra vertial del scroll se pare la animación, o vuelva a iniciarse//
+    //Importante que la accion sea clicar, si aprietas y mueves el scroll no se activara el metodo//
+    verticalBar.addMouseListener(new MouseAdapter() {
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (parado) {
+				hiloScroll.resume();
+				parado = false;
+			}else {
+				hiloScroll.suspend();
+				parado = true;
+			}
+			
+			super.mouseClicked(e);
+		}
+    	
+	});
+    
 	setVisible(true);
 	VentanaPrincipal.logger.log(Level.FINEST, "Se ha abierto la ventana jugadores");
 	iniciarHiloScroll(verticalBar);
+	parado = false;
 	
 	addWindowListener(new WindowAdapter() {
 
