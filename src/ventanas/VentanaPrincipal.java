@@ -29,6 +29,7 @@ import clases.Usuario;
 import conexion.Conexion;
 import utils.FondoEnVentana;
 import utils.HiloTiempoEnJuego;
+import utils.MetodosProperties;
 import utils.Quimica;
 
 public class VentanaPrincipal {
@@ -113,9 +114,10 @@ public class VentanaPrincipal {
 		panelFondo.add(panelBotones, BorderLayout.SOUTH);
 		
 		
-		//Ainadimos el panel a la ventana
+		//Añadimos el panel a la ventana
 		ventanaPrincipal.add(panelFondo, BorderLayout.CENTER);
 		
+		MetodosProperties.escrituraProperties();
 		ventanaPrincipal.setVisible(true);
 		logger.log(Level.FINEST, "Se ha iniciado la ventana principal");
 	}

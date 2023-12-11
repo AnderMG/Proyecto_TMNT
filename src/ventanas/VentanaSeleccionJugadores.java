@@ -22,6 +22,7 @@ import clases.JugaCampo;
 import clases.Jugador;
 import clases.Portero;
 import utils.LeerJugadorCampo;
+import utils.MetodosProperties;
 import utils.Quimica;
 
 import utils.DaoFormacion;
@@ -40,7 +41,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 
 		//Nos aseguramos de que las listas tengan el tamaño/contenido adecuado//
 		if (listaPorteros.isEmpty()) {
-			listaPorteros = LeerJugadorCampo.leerPorteros("Porteros.txt");
+			listaPorteros = LeerJugadorCampo.leerPorteros(MetodosProperties.lecturaProperties("FicPor"));
 			if (listaPorteros.size() > 12) {
 				for (int i = listaPorteros.size()-1; i>11; i--) {
 					listaPorteros.remove(i);
@@ -48,7 +49,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 			}
 		}
 		if (listaDefensas.isEmpty()) {
-			listaDefensas = LeerJugadorCampo.leerJugaDefensas("Defensas.txt");
+			listaDefensas = LeerJugadorCampo.leerJugaDefensas(MetodosProperties.lecturaProperties("FicDef"));
 			if (listaDefensas.size() > 24) {
 				for (int i = listaDefensas.size()-1; i>23; i--) {
 					listaDefensas.remove(i);
@@ -56,7 +57,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 			}
 		}
 		if (listaMediocentros.isEmpty()) {
-			listaMediocentros = LeerJugadorCampo.leerJugaMediocentros("Mediocentros.txt");
+			listaMediocentros = LeerJugadorCampo.leerJugaMediocentros(MetodosProperties.lecturaProperties("FicMed"));
 			if (listaMediocentros.size() > 24) {
 				for (int i = listaMediocentros.size()-1; i>23; i--) {
 					listaMediocentros.remove(i);
@@ -64,7 +65,7 @@ public class VentanaSeleccionJugadores extends JFrame {
 			}
 		}
 		if (listaDelanteros.isEmpty()) {
-			listaDelanteros = LeerJugadorCampo.leerJugaDelanteros("Delanteros.txt");
+			listaDelanteros = LeerJugadorCampo.leerJugaDelanteros(MetodosProperties.lecturaProperties("FicDel"));
 			if (listaDelanteros.size() > 23) {
 				for (int i = listaDelanteros.size()-1; i>22; i--) {
 					listaDelanteros.remove(i);

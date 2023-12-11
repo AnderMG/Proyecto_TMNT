@@ -15,10 +15,10 @@ public class CargarJugadores {
 	
 	
 	public static HashMap<Posicion, ArrayList<Jugador>> CargarMapaJugadores(){
-		ArrayList<Portero> listaPorteros = utils.LeerJugadorCampo.leerPorteros("Porteros.txt");
-		ArrayList<JugaCampo> listaDefensas = utils.LeerJugadorCampo.leerJugaDefensas("Defensas.txt");
-		ArrayList<JugaCampo> listaMedios = utils.LeerJugadorCampo.leerJugaMediocentros("Mediocentros.txt");
-		ArrayList<JugaCampo> listaDelanteros = utils.LeerJugadorCampo.leerJugaDelanteros("Delanteros.txt");
+		ArrayList<Portero> listaPorteros = utils.LeerJugadorCampo.leerPorteros(MetodosProperties.lecturaProperties("FicPor"));
+		ArrayList<JugaCampo> listaDefensas = utils.LeerJugadorCampo.leerJugaDefensas(MetodosProperties.lecturaProperties("FicDef"));
+		ArrayList<JugaCampo> listaMedios = utils.LeerJugadorCampo.leerJugaMediocentros(MetodosProperties.lecturaProperties("FicMed"));
+		ArrayList<JugaCampo> listaDelanteros = utils.LeerJugadorCampo.leerJugaDelanteros(MetodosProperties.lecturaProperties("FicDel"));
 		
 		//Mapeao de porteros//
 		if (mapaJugadores.get(Posicion.PORTERO) == null) {

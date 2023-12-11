@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import utils.MetodosProperties;
+
 public class Conexion {
 
 		Connection cx=null;
@@ -11,7 +13,7 @@ public class Conexion {
 		public	Connection conectar() {
 			try {
 				Class.forName("org.sqlite.JDBC");
-				cx=DriverManager.getConnection("jdbc:sqlite:basedatos.db");
+				cx=DriverManager.getConnection("jdbc:sqlite:" + MetodosProperties.lecturaProperties("nombre.bd"));
 				System.out.println("Conexion aceptada");
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
